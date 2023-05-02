@@ -1,0 +1,13 @@
+<h1>Teams and Players</h1>
+<ul>
+  {{#each teams}}
+    <li>
+      <h2>{{this.name}}</h2>
+      <ul>
+        {{#each this.Players}}
+          <li>{{this.name}} - {{this.position}}</li>
+        {{/each}}
+      </ul>
+    </li>
+  {{/each}}
+</ul>
