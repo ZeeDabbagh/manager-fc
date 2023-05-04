@@ -5,7 +5,8 @@
         "goals": 0,
         "jerseyNumber": 10,
         "weakFoot": "Left",
-        "strongFoot": "Right"
+        "strongFoot": "Right",
+        "teamId": 1
     },
     {
         "name": "test2",
@@ -13,22 +14,25 @@
         "goals": 1,
         "jerseyNumber": 22,
         "weakFoot": "Left",
-        "strongFoot": "Right"
+        "strongFoot": "Right",
+        "teamId": 1
     },
     {
         "name": "test3",
-        "position": "CN",
+        "position": "CM",
         "goals": 3,
         "jerseyNumber": 15,
         "weakFoot": "Left",
-        "strongFoot": "Right"
+        "strongFoot": "Right",
+        "teamId": 1
     },
     {
         "name": "test4",
-        "position": "ST",
+        "position": "LW",
         "goals": 5,
         "jerseyNumber": 7,
         "weakFoot": "Right",
-        "strongFoot": "Left"
+        "strongFoot": "Left",
+        "teamId": 1
     }
 ]

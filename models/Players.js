@@ -17,7 +17,18 @@ Player.init(
       allowNull: false,
     },
     position: {
-      type: DataTypes.STRING,
+      type: DataTypes.ENUM(
+        "GK",
+        "RB",
+        "LB",
+        "CB",
+        "DCM",
+        "CF",
+        "RW",
+        "LW",
+        "CM",
+        "CAM"
+      ),
       allowNull: false,
     },
     goals: {
@@ -29,12 +40,20 @@ Player.init(
       allowNull: false,
     },
     weakFoot: {
-      type: DataTypes.STRING,
+      type: DataTypes.ENUM("Left", "Right"),
       allowNull: false,
     },
     strongFoot: {
-      type: DataTypes.STRING,
+      type: DataTypes.ENUM("Left", "Right"),
       allowNull: false,
+    },
+    teamId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: "team",
+        key: "id",
+      },
     },
   },
   {
