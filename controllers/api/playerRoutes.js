@@ -44,3 +44,19 @@ router.get('/', async (req, res) => {
     res.render('new-player');
   });
   
+  // POST route to create a new player
+router.post('/players', async (req, res) => {
+  try {
+    const newPlayer = await Player.create({
+      name: req.body.name,
+      position: req.body.position,
+      goals: req.body.goals,
+      team_id: req.body.team_id // Add this line to associate the player with a team
+    });
+
+    res.status(201).json(newPlayer);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json(err);
+  }
+});
