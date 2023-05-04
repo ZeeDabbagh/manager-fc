@@ -14,6 +14,3 @@ Player.belongsTo(Team, {
 
 module.exports = { Team, Player, User };
 
-
-
-
