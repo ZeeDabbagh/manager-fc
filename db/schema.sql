@@ -1,3 +1,2 @@
-DROP DATABASE IF EXISTS player_db;
-CREATE DATABASE player_db;
-
+DROP DATABASE IF EXISTS manager_fc;
+CREATE DATABASE manager_fc;

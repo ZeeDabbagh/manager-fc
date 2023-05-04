@@ -2,25 +2,33 @@ const { Model, DataTypes } = require("sequelize");
 const bcrypt = require("bcrypt");
 const sequelize = require("../config/connection");
 
-class Player extends Model {
-  checkPassword(loginPw) {
-    return bcrypt.compareSync(loginPw, this.password);
-  }
-}
+class Player extends Model {}
 
 Player.init(
   {
     id: {
-      type: DataTypes.UUID,
-      defaultValue: Sequelize.UUIDV4,
+      type: DataTypes.INTEGER,
+      allowNull: false,
       primaryKey: true,
+      autoIncrement: true,
     },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
     position: {
-      type: DataTypes.STRING,
+      type: DataTypes.ENUM(
+        "GK",
+        "RB",
+        "LB",
+        "CB",
+        "DCM",
+        "CF",
+        "RW",
+        "LW",
+        "CM",
+        "CAM"
+      ),
       allowNull: false,
     },
     goals: {
@@ -32,26 +40,28 @@ Player.init(
       allowNull: false,
     },
     weakFoot: {
-      type: DataTypes.STRING,
+      type: DataTypes.ENUM("Left", "Right"),
       allowNull: false,
     },
     strongFoot: {
-      type: DataTypes.STRING,
+      type: DataTypes.ENUM("Left", "Right"),
       allowNull: false,
+    },
+    teamId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: "team",
+        key: "id",
+      },
     },
   },
   {
-    hooks: {
-      beforeCreate: async (newUserData) => {
-        newUserData.password = await bcrypt.hash(newUserData.password, 10);
-        return newUserData;
-      },
-    },
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "user",
+    modelName: "player",
   }
 );
 

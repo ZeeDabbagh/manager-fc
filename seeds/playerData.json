@@ -1,0 +1,38 @@
+[
+    {
+        "name": "test1",
+        "position": "GK",
+        "goals": 0,
+        "jerseyNumber": 10,
+        "weakFoot": "Left",
+        "strongFoot": "Right",
+        "teamId": 1
+    },
+    {
+        "name": "test2",
+        "position": "CB",
+        "goals": 1,
+        "jerseyNumber": 22,
+        "weakFoot": "Left",
+        "strongFoot": "Right",
+        "teamId": 1
+    },
+    {
+        "name": "test3",
+        "position": "CM",
+        "goals": 3,
+        "jerseyNumber": 15,
+        "weakFoot": "Left",
+        "strongFoot": "Right",
+        "teamId": 1
+    },
+    {
+        "name": "test4",
+        "position": "LW",
+        "goals": 5,
+        "jerseyNumber": 7,
+        "weakFoot": "Right",
+        "strongFoot": "Left",
+        "teamId": 1
+    }
+]

@@ -1,0 +1,17 @@
+[
+    {
+        "id": "1",
+        "name": "Devils",
+        "coachId": 1
+    },
+    {
+        "id": "2",
+        "name": "Lightning",
+        "coachId": 3
+    },
+    {
+        "id": "3",
+        "name": "Chargers",
+        "coachId": 4
+    }
+]
