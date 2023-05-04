@@ -12,10 +12,8 @@ Player.belongsTo(Team, {
     onDelete: 'CASCADE',
   });
 
+module.exports = { Team, Player, User };
 
-module.exports = { User };
-module.exports = { Team, Player };
-const Player = require("./Players");
 
-module.exports = { Player };
+
 
