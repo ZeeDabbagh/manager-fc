@@ -13,7 +13,7 @@ const app = express();
 const PORT = process.env.PORT || 3001; // Heroku has env var for port
 
 // Set up Handlebars.js engine with custom helpers
-//const hbs = exphbs.create({ helpers });
+const hbs = exphbs.create({ });
 
 const sess = {
   secret: process.env.SECRET,
