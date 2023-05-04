@@ -4,6 +4,7 @@ const session = require('express-session'); // In place of local cookies: MySQL 
 const exphbs = require('express-handlebars');
 const routes = require('./controllers'); // Functions that implement the route's URL and method
 //const helpers = require('./utils/helpers');
+require('dotenv').config();
 
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -15,7 +16,7 @@ const PORT = process.env.PORT || 3001; // Heroku has env var for port
 //const hbs = exphbs.create({ helpers });
 
 const sess = {
-  secret: 'Super secret secret', // needs to be protected in an evn
+  secret: process.env.SECRET,
   cookie: {
     maxAge: 300000,
     httpOnly: true,
