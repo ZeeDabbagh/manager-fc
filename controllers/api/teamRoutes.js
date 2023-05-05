@@ -1,3 +1,5 @@
+const Team = require('../models/team');
+
 // POST route to create a new team with just name 
 router.post('/teams', async (req, res) => {
     try {
