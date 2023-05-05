@@ -11,4 +11,26 @@ router.post('/teams', async (req, res) => {
       res.status(500).json(err);
     }
   });
+  // DELETE route to delete a team by id
+router.delete('/teams/:id', async (req, res) => {
+    try {
+      const teamId = req.params.id;
+  
+      const deletedTeam = await Team.destroy({
+        where: {
+          id: teamId,
+        },
+      });
+  
+      if (!deletedTeam) {
+        res.status(404).json({ message: 'No team found with this id!' });
+        return;
+      }
+  
+      res.status(200).json({ message: 'Team deleted successfully.' });
+    } catch (err) {
+      console.error(err);
+      res.status(500).json(err);
+    }
+  });
   
