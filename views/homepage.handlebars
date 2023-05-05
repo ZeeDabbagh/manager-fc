@@ -1,13 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Manager FC</title>
-  <link rel="stylesheet" href="../public/css/jass.css">
-</head>
-<body>
-  {{{body}}}
-  <script src="../public/js/index.js"></script>
-</body>
-</html>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark m-2">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="/images/logo.png">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="./layouts/main.handlebars">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./teamsAndPlayers.handlebars">Teams</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/players">Players</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./login.handlebars">Login</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+    <table class="score-table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Final Score</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <span class="team-name">HBE</span>
+      </td>
+      <td>3 | 3</td>
+        <td>
+        <span class="team-name">WB</span>
+      </td>
+    </tr>
+  
+    <!-- Add more rows for other teams -->
+  </tbody>
+</table>

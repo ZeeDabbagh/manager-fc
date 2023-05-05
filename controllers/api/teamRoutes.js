@@ -1,4 +1,6 @@
+const router = express.Router();
 const Team = require('../models/team');
+const withAuth = require("../../utils/auth");
 
 // POST route to create a new team with just name 
 router.post('/teams', async (req, res) => {
@@ -36,3 +38,4 @@ router.delete('/teams/:id', async (req, res) => {
     }
   });
   
+module.exports = router;

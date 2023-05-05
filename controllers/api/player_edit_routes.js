@@ -1,12 +1,20 @@
 const express = require("express");
 const router = express.Router();
 const { Player } = require("../../models");
+const withAuth = require("../../utils/auth");
 
 // Create a new player
-router.post("/players", async (req, res) => {
+router.post("/players", withAuth, async (req, res) => {
   try {
-    const { name, position, goals, jerseyNumber, weakFoot, strongFoot } =
-      req.body;
+    const {
+      name,
+      position,
+      goals,
+      jerseyNumber,
+      weakFoot,
+      strongFoot,
+      teamId,
+    } = req.body;
     const player = await Player.create({
       name,
       position,
@@ -14,6 +22,7 @@ router.post("/players", async (req, res) => {
       jerseyNumber,
       weakFoot,
       strongFoot,
+      teamId,
     });
     res.json(player);
   } catch (error) {
@@ -22,7 +31,7 @@ router.post("/players", async (req, res) => {
 });
 
 // Get the form to edit a player
-router.get("/players/:id/edit", async (req, res) => {
+router.get("/players/:id/edit", withAuth, async (req, res) => {
   try {
     const player = await Player.findByPk(req.params.id);
     if (player) {
@@ -36,7 +45,7 @@ router.get("/players/:id/edit", async (req, res) => {
 });
 
 // Update a player
-router.put("/players/:id", async (req, res) => {
+router.put("/players/:id", withAuth, async (req, res) => {
   try {
     const player = await Player.findByPk(req.params.id);
     if (player) {
@@ -60,7 +69,7 @@ router.put("/players/:id", async (req, res) => {
 });
 
 // Delete a player
-router.delete("/players/:id", async (req, res) => {
+router.delete("/players/:id", withAuth, async (req, res) => {
   try {
     const player = await Player.findByPk(req.params.id);
     if (player) {
