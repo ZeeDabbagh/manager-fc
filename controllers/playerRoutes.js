@@ -3,6 +3,7 @@ const router = express.Router();
 const { Player, Team } = require("../models");
 const withAuth = require('../utils/auth');
 
+
 // GET / - Home page with a list of all teams and their players
 router.get("/", withAuth, async (req, res) => {
   try {
@@ -12,7 +13,7 @@ router.get("/", withAuth, async (req, res) => {
 
     const teams = teamsData.map((team) => team.get({ plain: true }));
 
-    res.render('players', { teams });
+    res.render("players", { teams });
   } catch (err) {
     console.error(err);
     res.status(500).json(err);
@@ -33,7 +34,7 @@ router.get("/players/:id", withAuth, async (req, res) => {
 
     const player = playerData.get({ plain: true });
 
-    res.render('players', { player });
+    res.render("players", { player });
   } catch (err) {
     console.error(err);
     res.status(500).json(err);

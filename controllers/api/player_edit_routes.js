@@ -3,11 +3,19 @@ const router = express.Router();
 const { Player } = require("../../models");
 const withAuth = require('../../utils/auth');
 
+
 // Create a new player
 router.post("/players", withAuth, async (req, res) => {
   try {
-    const { name, position, goals, jerseyNumber, weakFoot, strongFoot } =
-      req.body;
+    const {
+      name,
+      position,
+      goals,
+      jerseyNumber,
+      weakFoot,
+      strongFoot,
+      teamId,
+    } = req.body;
     const player = await Player.create({
       name,
       position,
@@ -15,6 +23,7 @@ router.post("/players", withAuth, async (req, res) => {
       jerseyNumber,
       weakFoot,
       strongFoot,
+      teamId,
     });
     res.json(player);
   } catch (error) {
@@ -23,6 +32,7 @@ router.post("/players", withAuth, async (req, res) => {
 });
 
 // Get the form to edit a player
+
 router.get("/players/:id/edit", withAuth ,async (req, res) => {
   try {
     const player = await Player.findByPk(req.params.id);
