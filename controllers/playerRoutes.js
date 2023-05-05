@@ -1,7 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const { Player, Team } = require("../models");
-const withAuth = require("../utils/auth");
+const withAuth = require('../utils/auth');
+
 
 // GET / - Home page with a list of all teams and their players
 router.get("/", withAuth, async (req, res) => {
@@ -42,7 +43,7 @@ router.get("/players/:id", withAuth, async (req, res) => {
 
 // GET /players/new - Show a form to create a new player
 router.get("/players/new", withAuth, (req, res) => {
-  res.render("new-player");
+  res.render('new-player');
 });
 
 module.exports = router;

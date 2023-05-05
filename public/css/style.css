@@ -1,9 +1,10 @@
 .score-table {
-    width: 30%;
+    width: 80%;
     border-collapse: collapse;
     font-size: 14px;
     line-height: 1.5;
     margin: 15px;
+    box-shadow: 10px 5px 5px grey;
   }
   
   .score-table th,
@@ -11,7 +12,7 @@
     padding: 10px;
     text-align: center;
     vertical-align: middle;
-    border: 1px solid #e5e5e5;
+    border: 1px ;
   }
   
   .score-table th {
@@ -49,4 +50,13 @@
     display: inline-block;
     vertical-align: middle;
     font-weight: 700;
+  }
+
+  .footer-bg {
+    background-color: #5653538c;
+  }
+
+  .img {
+    border-radius: 15px;
+    box-shadow: 10px 5px 5px grey;
   }
