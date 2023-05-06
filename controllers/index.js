@@ -10,6 +10,5 @@ router.use("/", homeRoutes);
 router.use("/players", playerRoutes);
 router.use("/api", apiRoutes);
 router.use("/teams", teamRoutes);
-router.use('/users', userRoutes)
 
 module.exports = router;
