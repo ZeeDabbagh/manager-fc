@@ -29,4 +29,21 @@ router.get("/players/new", withAuth, (req, res) => {
   res.render("new-player");
 });
 
+// GET route to list players
+router.get("/", withAuth, async (req, res) => {
+  try {
+    const playersData = await Player.findAll({
+      include: [{ model: Team }],
+      order: [["name", "ASC"]],
+    });
+
+    const players = playersData.map((player) => player.get({ plain: true }));
+
+    res.render("players", { players });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;

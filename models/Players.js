@@ -1,6 +1,7 @@
 const { Model, DataTypes } = require("sequelize");
 const bcrypt = require("bcrypt");
 const sequelize = require("../config/connection");
+const Team = require("./team");
 
 class Player extends Model {}
 
@@ -64,5 +65,7 @@ Player.init(
     modelName: "player",
   }
 );
+
+Player.belongsTo(Team, { foreignKey: "teamId" });
 
 module.exports = Player;
