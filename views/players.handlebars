@@ -1,4 +1,30 @@
-<h1>{{player.name}}</h1>
-<p>Team: {{player.Team.name}}</p>
-<p>Position: {{player.position}}</p>
-<p>Goals: {{player.goals}}</p>
+{{#if players}}
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Goals</th>
+        <th>Jersey Number</th>
+        <th>Weak Foot</th>
+        <th>Strong Foot</th>
+        <th>Team</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each players}}
+        <tr>
+          <td>{{name}}</td>
+          <td>{{position}}</td>
+          <td>{{goals}}</td>
+          <td>{{jerseyNumber}}</td>
+          <td>{{weakFoot}}</td>
+          <td>{{strongFoot}}</td>
+          <td>{{team.name}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+{{else}}
+  <p>No players found.</p>
+{{/if}}
