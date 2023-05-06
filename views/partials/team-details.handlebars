@@ -1,8 +1,12 @@
-<section class="card">
-  <a href="/teams/{{id}}">
-    <header>{{name}}</header>
-    <!-- The card contains the first painting of the gallery -->
-    <img src="/images/{{team.id.filename}}" alt="team logo">
-  </a>
-</section>
+<div class="row">
+<div class="card text-dark bg-white mb-3" style="max-width: 25%;">
+  <div class="card-header font-weight-bold text-center">{{name}}</div>
+  <div class="card-body">
+    <a href="/teams/{{id}}">
+    <img class="mx-auto px-3" src="/images/{{filename}}" alt="team logo"></a>
+
+  </div>
+</div>
+
+</div>
 
