@@ -23,6 +23,10 @@ Team.init(
         key: "id",
       },
     },
+    filename: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    }
   },
   {
     sequelize,

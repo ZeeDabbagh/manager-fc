@@ -4,7 +4,7 @@ const { Player, Team } = require("../models");
 const withAuth = require("../utils/auth");
 
 // GET /players/:id - Show details for a specific player
-router.get("/players/:id", withAuth, async (req, res) => {
+router.get("/:id", withAuth, async (req, res) => {
   try {
     const playerData = await Player.findByPk(req.params.id, {
       include: [{ model: Team }],
