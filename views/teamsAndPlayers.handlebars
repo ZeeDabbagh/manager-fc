@@ -1,3 +1,15 @@
+<section class="container">
+  <h3 class="team-name"> {{team.name}} </h3>
+
+  {{#each teams as |team|}}
+  {{> team-details}}
+  {{/each}}
+
+
+</section>
+
+
+{{!-- 
 <h1>Teams and Players</h1>
 <ul>
   {{#each teams}}
@@ -11,3 +23,5 @@
     </li>
   {{/each}}
 </ul>
+ --}}
+

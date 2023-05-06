@@ -2,16 +2,26 @@
     {
         "id": "1",
         "name": "Devils",
-        "coachId": 1
+        "coachId": 1,
+        "filename": "devils-logo.png"
     },
     {
         "id": "2",
         "name": "Lightning",
-        "coachId": 3
+        "coachId": 3,
+        "filename": "lightning-logo.png"
     },
     {
         "id": "3",
         "name": "Chargers",
-        "coachId": 4
+        "coachId": 4,
+        "filename": "chargers-logo.png"
+    },
+    {
+        "id": "4",
+        "name": "Bobcats",
+        "coachId": 5,
+        "filename": "bobcats-logo.png"
     }
 ]
+

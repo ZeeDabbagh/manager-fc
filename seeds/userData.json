@@ -26,5 +26,12 @@
     "email": "Fady@aol.com",
     "password": "password12345",
     "role": "coach"
+  },
+  {
+    "id": "5",
+    "name": "Eriv",
+    "email": "eric@aol.com",
+    "password": "password12345",
+    "role": "coach"
   }
 ]
