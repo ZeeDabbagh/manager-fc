@@ -14,5 +14,14 @@ router.get('/login', (req, res) => {
   res.render('login', {loggedIn: req.session.logged_in});
 });
 
+router.get('/addplayer', (req, res) => {
+  if (!req.session.logged_in) {
+    res.redirect('/');
+   
+  }
+
+  res.render('new-player', {loggedIn: req.session.logged_in});
+});
+
 module.exports = router;
   
