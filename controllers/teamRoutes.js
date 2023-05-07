@@ -3,7 +3,7 @@ const router = express.Router();
 const { Player, Team, User } = require("../models");
 const withAuth = require("../utils/auth");
 
-// GET / - Home page with a list of all teams and their players
+// GET / - Home page with a list of all teams
 router.get("/", withAuth, async (req, res) => {
   try {
     const teamsData = await Team.findAll({
@@ -20,6 +20,8 @@ router.get("/", withAuth, async (req, res) => {
 });
 
 module.exports = router;
+
+// GET route for single team info
 
 router.get("/:id", withAuth, async (req, res) => {
   try {
