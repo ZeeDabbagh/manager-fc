@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-md-3">
+    <img class="ms-auto px-3" src="/images/{{filename}}" alt="{{name}} logo" />
+  </div>
+  <div class="col-md-9">
+    <h1>{{name}}</h1>
+    <h2>Coach: {{team.coachId.name}}</h2>
+    <h3>Players:</h3>
+    <ul>
+      {{#each team.players as |player|}}
+        <li>{{this.name}} - {{this.position}}</li>
+      {{/each}}
+    </ul>
+  </div>
+</div>

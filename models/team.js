@@ -1,5 +1,6 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
+const User = require("./User");
 
 class Team extends Model {}
 
@@ -26,7 +27,7 @@ Team.init(
     filename: {
       type: DataTypes.STRING,
       allowNull: false,
-    }
+    },
   },
   {
     sequelize,
@@ -36,5 +37,7 @@ Team.init(
     modelName: "team",
   }
 );
+
+Team.belongsTo(User, { as: "coach", foreignKey: "coachId" });
 
 module.exports = Team;
