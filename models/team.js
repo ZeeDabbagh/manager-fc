@@ -26,7 +26,7 @@ Team.init(
     filename: {
       type: DataTypes.STRING,
       allowNull: false,
-    }
+    },
   },
   {
     sequelize,
@@ -36,5 +36,7 @@ Team.init(
     modelName: "team",
   }
 );
+
+Team.belongsTo(User, { as: "coach", foreignKey: "coachId" });
 
 module.exports = Team;
