@@ -1,8 +1,9 @@
 const router = require('express').Router();
 
 router.get('/', async (req, res) => {
-  res.render('homepage')
-});
+  res.render('homepage');
+  });
+
 
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
@@ -10,7 +11,7 @@ router.get('/login', (req, res) => {
     return;
   }
 
-  res.render('login');
+  res.render('login', {loggedIn: req.session.loggedIn});
 });
 
 module.exports = router;
