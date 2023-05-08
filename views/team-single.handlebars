@@ -4,10 +4,10 @@
   </div>
   <div class="col-md-9">
     <h1>{{name}}</h1>
-    <h2>Coach: {{team.coachId.name}}</h2>
+    <h2>Coach: {{user.name}}</h2>
     <h3>Players:</h3>
     <ul>
-      {{#each team.players as |player|}}
+      {{#each players as |player|}}
         <li>{{this.name}} - {{this.position}}</li>
       {{/each}}
     </ul>

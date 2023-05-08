@@ -18,6 +18,7 @@ router.post('/', async (req, res) => {
 });
 
 router.post("/login", async (req, res) => {
+  console.log('hello', req.body)
   try {
     const userData = await User.findOne({ where: { email: req.body.email } });
 
@@ -41,7 +42,9 @@ router.post("/login", async (req, res) => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
 
-      res.json({ user: userData, message: "You are now logged in!" });
+      console.log(req.session)
+      res.render("homepage", { user: userData, message: "You are now logged in!" ,loggedIn:req.session.logged_in})
+      // res.json({ user: userData, message: "You are now logged in!" ,loggedIn:req.session.logged_in});
     });
   } catch (err) {
     res.status(400).json(err);

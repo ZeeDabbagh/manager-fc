@@ -3,22 +3,22 @@ const Player = require("./Players");
 const User = require("./User");
 
 Player.belongsTo(Team, {
-  foreignKey: "teamId",
+  foreignKey: "team_id",
   onDelete: "CASCADE",
 });
 
 Team.hasMany(Player, {
-  foreignKey: "teamId",
+  foreignKey: "team_id",
   onDelete: "CASCADE",
 });
 
-Team.hasOne(User, {
-  foreignKey: "coachId",
+Team.belongsTo(User, {
+  foreignKey: "coach_id",
   onDelete: "CASCADE",
 });
 
-User.belongsTo(Team, {
-  foreignKey: "coachId",
+User.hasOne(Team, {
+  foreignKey: "coach_id",
   onDelete: "CASCADE",
 });
 

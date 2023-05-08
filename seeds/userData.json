@@ -1,35 +1,30 @@
 [
   {
-    "id": "1",
     "name": "Sal",
     "email": "sal@hotmail.com",
     "password": "password12345",
     "role": "coach"
   },
   {
-    "id": "2",
     "name": "Lernantino",
     "email": "lernantino@gmail.com",
     "password": "password12345",
     "role": "manager"
   },
   {
-    "id": "3",
     "name": "Amiko",
     "email": "amiko2k20@aol.com",
     "password": "password12345",
     "role": "coach"
   },
   {
-    "id": "4",
     "name": "Fady",
     "email": "Fady@aol.com",
     "password": "password12345",
     "role": "coach"
   },
   {
-    "id": "5",
-    "name": "Eriv",
+    "name": "Eric",
     "email": "eric@aol.com",
     "password": "password12345",
     "role": "coach"

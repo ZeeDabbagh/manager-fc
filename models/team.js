@@ -16,7 +16,7 @@ Team.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    coachId: {
+    coach_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
@@ -38,6 +38,6 @@ Team.init(
   }
 );
 
-Team.belongsTo(User, { as: "coach", foreignKey: "coachId" });
+//Team.belongsTo(User, { as: "coach", foreignKey: "coachId" });
 
 module.exports = Team;

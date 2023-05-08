@@ -48,7 +48,7 @@ Player.init(
       type: DataTypes.ENUM("Left", "Right"),
       allowNull: false,
     },
-    teamId: {
+    team_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
@@ -66,6 +66,6 @@ Player.init(
   }
 );
 
-Player.belongsTo(Team, { foreignKey: "teamId" });
+//Player.belongsTo(Team, { foreignKey: "teamId" });
 
 module.exports = Player;

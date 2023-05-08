@@ -25,9 +25,11 @@ router.get("/:id", withAuth, async (req, res) => {
 });
 
 // GET /players/new - Show a form to create a new player
-router.get("/players/new", withAuth, (req, res) => {
+router.get("/addplayer", withAuth, (req, res) => {
   res.render("new-player");
 });
+
+
 
 // GET route to list players
 router.get("/", withAuth, async (req, res) => {

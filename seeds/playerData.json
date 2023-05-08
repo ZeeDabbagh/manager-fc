@@ -6,7 +6,7 @@
         "jerseyNumber": 10,
         "weakFoot": "Left",
         "strongFoot": "Right",
-        "teamId": 1
+        "team_id": 1
     },
     {
         "name": "test2",
@@ -15,7 +15,7 @@
         "jerseyNumber": 22,
         "weakFoot": "Left",
         "strongFoot": "Right",
-        "teamId": 1
+        "team_id": 1
     },
     {
         "name": "test3",
@@ -24,7 +24,7 @@
         "jerseyNumber": 15,
         "weakFoot": "Left",
         "strongFoot": "Right",
-        "teamId": 1
+        "team_id": 1
     },
     {
         "name": "test4",
@@ -33,6 +33,6 @@
         "jerseyNumber": 7,
         "weakFoot": "Right",
         "strongFoot": "Left",
-        "teamId": 1
+        "team_id": 1
     }
 ]
