@@ -1,30 +1,30 @@
 const express = require("express");
 const router = express.Router();
-const { Player } = require("../../models");
-const withAuth = require('../../utils/auth');
-
+const { Player, Team } = require("../../models");
+const withAuth = require("../../utils/auth");
 
 // Create a new player
-router.post("/players", withAuth, async (req, res) => {
+router.post("/", withAuth, async (req, res) => {
   try {
-    const {
-      name,
-      position,
-      goals,
-      jerseyNumber,
-      weakFoot,
-      strongFoot,
-      teamId,
-    } = req.body;
+    const { name, position, jerseyNumber, weakFoot, strongFoot, teamName } =
+      req.body;
+
+    // query team table
+    const team = await Team.findOne({
+      where: { name: teamName },
+    });
+
+    const team_id = team.id;
+
     const player = await Player.create({
       name,
       position,
-      goals,
       jerseyNumber,
       weakFoot,
       strongFoot,
-      teamId,
+      team_id,
     });
+    console.log(player);
     res.json(player);
   } catch (error) {
     res.status(400).json({ message: "Player not created" });
@@ -33,7 +33,7 @@ router.post("/players", withAuth, async (req, res) => {
 
 // Get the form to edit a player
 
-router.get("/players/:id/edit", withAuth ,async (req, res) => {
+router.get("/:id/edit", withAuth, async (req, res) => {
   try {
     const player = await Player.findByPk(req.params.id);
     if (player) {
@@ -47,7 +47,7 @@ router.get("/players/:id/edit", withAuth ,async (req, res) => {
 });
 
 // Update a player
-router.put("/players/:id", withAuth, async (req, res) => {
+router.put("/:id", withAuth, async (req, res) => {
   try {
     const player = await Player.findByPk(req.params.id);
     if (player) {
@@ -71,7 +71,7 @@ router.put("/players/:id", withAuth, async (req, res) => {
 });
 
 // Delete a player
-router.delete("/players/:id", withAuth, async (req, res) => {
+router.delete("/:id", withAuth, async (req, res) => {
   try {
     const player = await Player.findByPk(req.params.id);
     if (player) {
