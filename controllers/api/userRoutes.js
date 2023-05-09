@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 const withAuth = require('../../utils/auth');
+const english_dict = require('../../languages/en.json');
+const arabic_dict = require('../../languages/ar.json');
 
 router.post('/', async (req, res) => {
   try {
@@ -9,6 +11,7 @@ router.post('/', async (req, res) => {
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
+      req.session.language = 'en';
 
       res.status(200).json(userData);
     });
@@ -18,7 +21,7 @@ router.post('/', async (req, res) => {
 });
 
 router.post("/login", async (req, res) => {
-  console.log('hello', req.body)
+
   try {
     const userData = await User.findOne({ where: { email: req.body.email } });
 
@@ -43,7 +46,8 @@ router.post("/login", async (req, res) => {
       req.session.logged_in = true;
 
       console.log(req.session)
-      res.render("homepage", { user: userData, message: "You are now logged in!" ,loggedIn:req.session.logged_in})
+      const language_details = req.session.language === 'en' ? english_dict : arabic_dict;
+      res.render("homepage", { user: userData, message: "You are now logged in!" ,loggedIn:req.session.logged_in, language:language_details})
       // res.json({ user: userData, message: "You are now logged in!" ,loggedIn:req.session.logged_in});
     });
   } catch (err) {
