@@ -1,19 +1,19 @@
 const path = require('path');
 const express = require('express');
-const session = require('express-session'); // In place of local cookies: MySQL Table automatically created to keep track of your authentication details
+const session = require('express-session');
 const exphbs = require('express-handlebars');
-const routes = require('./controllers'); // Functions that implement the route's URL and method
-//const helpers = require('./utils/helpers');
-require('dotenv').config();
+const routes = require('./controllers');
+const dotenv = require('dotenv');
+const glob = require('glob');
 
-const sequelize = require('./config/connection');
-const SequelizeStore = require('connect-session-sequelize')(session.Store);
+dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 3001; // Heroku has env var for port
+const PORT = process.env.PORT || 3001;
 
-// Set up Handlebars.js engine with custom helpers
-const hbs = exphbs.create({ });
+const hbs = exphbs.create();
+
+const language_dict = {};
 
 const sess = {
   secret: process.env.SECRET,
@@ -22,17 +22,15 @@ const sess = {
     httpOnly: true,
     secure: false,
     sameSite: 'strict',
+   
   },
   resave: false,
   saveUninitialized: true,
-  store: new SequelizeStore({
-    db: sequelize
-  })
+  
 };
 
 app.use(session(sess));
 
-// Inform Express.js on which template engine to use
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
@@ -40,8 +38,28 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Load language files and build language_dict
+glob.sync('./languages/*.json').forEach(function(file) {
+  const lang = path.basename(file, '.json');
+  const data = require(file);
+  language_dict[lang] = data;
+});
+
+app.use(function(req, res, next) {
+  // Get the language code from the URL or use default
+  const code = req.path.split('/')[1] || 'en';
+
+  // Set the language in the session
+  req.session.lang = code;
+
+  // Set the language data in res.locals for use in templates
+  res.locals.lang = language_dict[code] || {};
+
+  next();
+});
+
 app.use(routes);
 
-sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log('Now listening'));
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
