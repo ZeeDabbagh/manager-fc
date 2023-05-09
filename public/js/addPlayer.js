@@ -1,6 +1,5 @@
 async function newFormHandler(event) {
   event.preventDefault();
-  console.log(event);
 
   const name = document.querySelector("#playerName").value;
   const jerseyNumber = document.querySelector("#jerseyNumber").value;
@@ -26,7 +25,7 @@ async function newFormHandler(event) {
       "Content-Type": "application/json",
     },
   });
-  console.log("string3");
+
   if (response.ok) {
     document.location.replace("/");
   } else {

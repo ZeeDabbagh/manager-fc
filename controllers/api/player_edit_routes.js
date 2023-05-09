@@ -27,7 +27,7 @@ router.post("/", withAuth, async (req, res) => {
     console.log(player);
     res.json(player);
   } catch (error) {
-    res.status(400).json({ message: "Player not created" });
+    res.status(500).json({ message: "Player not created" });
   }
 });
 
@@ -42,7 +42,7 @@ router.get("/:id/edit", withAuth, async (req, res) => {
       res.status(404).json({ message: "Player not found" });
     }
   } catch (error) {
-    res.status(400).json({ message: error.message });
+    res.status(500).json({ message: error.message });
   }
 });
 
@@ -66,14 +66,19 @@ router.put("/:id", withAuth, async (req, res) => {
       res.status(404).json({ message: "Player not found" });
     }
   } catch (error) {
-    res.status(400).json({ message: "Player not updated" });
+    res.status(500).json({ message: "Player not updated" });
   }
 });
 
 // Delete a player
-router.delete("/:id", withAuth, async (req, res) => {
+router.delete("/:name", withAuth, async (req, res) => {
   try {
-    const player = await Player.findByPk(req.params.id);
+    const name = req.params.name;
+    const player = await Player.findOne({
+      where: {
+        name: name,
+      },
+    });
     if (player) {
       await player.destroy();
       res.json({ message: "Player deleted" });
@@ -81,7 +86,7 @@ router.delete("/:id", withAuth, async (req, res) => {
       res.status(404).json({ message: "Player not found" });
     }
   } catch (error) {
-    res.status(400).json({ message: "Player not deleted" });
+    res.status(500).json({ message: "Player not deleted" });
   }
 });
 
