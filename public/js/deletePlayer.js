@@ -41,6 +41,7 @@ async function deletePlayer(event) {
     if (response.ok) {
       modal.style.display = "none";
       alert("Player deleted!");
+      document.location.replace("/players");
     }
     //   } else {
     //     alert("Failed to delete player!");
