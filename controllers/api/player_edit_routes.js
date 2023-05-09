@@ -1,39 +1,39 @@
 const express = require("express");
 const router = express.Router();
-const { Player } = require("../../models");
-const withAuth = require('../../utils/auth');
-
+const { Player, Team } = require("../../models");
+const withAuth = require("../../utils/auth");
 
 // Create a new player
-router.post("/players", withAuth, async (req, res) => {
+router.post("/", withAuth, async (req, res) => {
   try {
-    const {
-      name,
-      position,
-      goals,
-      jerseyNumber,
-      weakFoot,
-      strongFoot,
-      teamId,
-    } = req.body;
+    const { name, position, jerseyNumber, weakFoot, strongFoot, teamName } =
+      req.body;
+
+    // query team table
+    const team = await Team.findOne({
+      where: { name: teamName },
+    });
+
+    const team_id = team.id;
+
     const player = await Player.create({
       name,
       position,
-      goals,
       jerseyNumber,
       weakFoot,
       strongFoot,
-      teamId,
+      team_id,
     });
+    console.log(player);
     res.json(player);
   } catch (error) {
-    res.status(400).json({ message: "Player not created" });
+    res.status(500).json({ message: "Player not created" });
   }
 });
 
 // Get the form to edit a player
 
-router.get("/players/:id/edit", withAuth ,async (req, res) => {
+router.get("/:id/edit", withAuth, async (req, res) => {
   try {
     const player = await Player.findByPk(req.params.id);
     if (player) {
@@ -42,12 +42,12 @@ router.get("/players/:id/edit", withAuth ,async (req, res) => {
       res.status(404).json({ message: "Player not found" });
     }
   } catch (error) {
-    res.status(400).json({ message: error.message });
+    res.status(500).json({ message: error.message });
   }
 });
 
 // Update a player
-router.put("/players/:id", withAuth, async (req, res) => {
+router.put("/:id", withAuth, async (req, res) => {
   try {
     const player = await Player.findByPk(req.params.id);
     if (player) {
@@ -66,14 +66,19 @@ router.put("/players/:id", withAuth, async (req, res) => {
       res.status(404).json({ message: "Player not found" });
     }
   } catch (error) {
-    res.status(400).json({ message: "Player not updated" });
+    res.status(500).json({ message: "Player not updated" });
   }
 });
 
 // Delete a player
-router.delete("/players/:id", withAuth, async (req, res) => {
+router.delete("/:name", withAuth, async (req, res) => {
   try {
-    const player = await Player.findByPk(req.params.id);
+    const name = req.params.name;
+    const player = await Player.findOne({
+      where: {
+        name: name,
+      },
+    });
     if (player) {
       await player.destroy();
       res.json({ message: "Player deleted" });
@@ -81,7 +86,7 @@ router.delete("/players/:id", withAuth, async (req, res) => {
       res.status(404).json({ message: "Player not found" });
     }
   } catch (error) {
-    res.status(400).json({ message: "Player not deleted" });
+    res.status(500).json({ message: "Player not deleted" });
   }
 });
 
