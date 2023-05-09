@@ -44,6 +44,7 @@ router.post("/login", async (req, res) => {
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
+      req.session.language = 'en';
 
       console.log(req.session)
       const language_details = req.session.language === 'en' ? english_dict : arabic_dict;
