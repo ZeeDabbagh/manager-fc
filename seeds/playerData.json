@@ -1,38 +1,236 @@
 [
     {
-        "name": "test1",
+        "name": "Amir Mohamed",
         "position": "GK",
         "goals": 0,
-        "jerseyNumber": 10,
+        "jerseyNumber": 1,
         "weakFoot": "Left",
         "strongFoot": "Right",
         "team_id": 1
     },
     {
-        "name": "test2",
-        "position": "CB",
+        "name": "Amy O'Connor",
+        "position": "RB",
         "goals": 1,
-        "jerseyNumber": 22,
+        "jerseyNumber": 2,
         "weakFoot": "Left",
         "strongFoot": "Right",
         "team_id": 1
     },
     {
-        "name": "test3",
-        "position": "CM",
+        "name": "Christian Lozada",
+        "position": "LB",
         "goals": 3,
-        "jerseyNumber": 15,
+        "jerseyNumber": 3,
         "weakFoot": "Left",
         "strongFoot": "Right",
         "team_id": 1
     },
     {
-        "name": "test4",
-        "position": "LW",
+        "name": "Cynthia Pian",
+        "position": "CB",
         "goals": 5,
-        "jerseyNumber": 7,
+        "jerseyNumber": 4,
         "weakFoot": "Right",
         "strongFoot": "Left",
         "team_id": 1
+    },
+    {
+        "name": "Damil Canales",
+        "position": "DCM",
+        "goals": 2,
+        "jerseyNumber": 5,
+        "weakFoot": "Right",
+        "strongFoot": "Left",
+        "team_id": 2
+    },
+    {
+        "name": "Elinor Chayo",
+        "position": "CF",
+        "goals": 7,
+        "jerseyNumber": 6,
+        "weakFoot": "Right",
+        "strongFoot": "Left",
+        "team_id": 2
+    },
+    {
+        "name": "Enrique Gomez",
+        "position": "RW",
+        "goals": 7,
+        "jerseyNumber": 7,
+        "weakFoot": "Left",
+        "strongFoot": "Right",
+        "team_id": 2
+    },
+    {
+        "name": "Eric Drezner",
+        "position": "LW",
+        "goals": 100,
+        "jerseyNumber": 8,
+        "weakFoot": "Right",
+        "strongFoot": "Left",
+        "team_id": 2
+    },
+    {
+        "name": "Erik Chiodo",
+        "position": "CM",
+        "goals": 5,
+        "jerseyNumber": 9,
+        "weakFoot": "Left",
+        "strongFoot": "Right",
+        "team_id": 3
+    },
+    {
+        "name": "Erin Matts",
+        "position": "GK",
+        "goals": 0,
+        "jerseyNumber": 11,
+        "weakFoot": "Left",
+        "strongFoot": "Right",
+        "team_id": 3
+    },
+    {
+        "name": "Evan Pan",
+        "position": "RB",
+        "goals": 5,
+        "jerseyNumber": 12,
+        "weakFoot": "Left",
+        "strongFoot": "Right",
+        "team_id": 3
+    },
+    {
+        "name": "Fady Khalil",
+        "position": "LB",
+        "goals": 100,
+        "jerseyNumber": 13,
+        "weakFoot": "Left",
+        "strongFoot": "Right",
+        "team_id": 3
+    },
+    {
+        "name": "Jose Cortorreal",
+        "position": "CB",
+        "goals": 5,
+        "jerseyNumber": 14,
+        "weakFoot": "Left",
+        "strongFoot": "Right",
+        "team_id": 4
+    },
+    {
+        "name": "Julia Hany",
+        "position": "DCM",
+        "goals": 8,
+        "jerseyNumber": 15,
+        "weakFoot": "Left",
+        "strongFoot": "Right",
+        "team_id": 4
+    },
+    {
+        "name": "Khuzema Aslam",
+        "position": "CF",
+        "goals": 3,
+        "jerseyNumber": 16,
+        "weakFoot": "Left",
+        "strongFoot": "Right",
+        "team_id": 4
+    },
+    {
+        "name": "Kyle Chau",
+        "position": "DCM",
+        "goals": 3,
+        "jerseyNumber": 17,
+        "weakFoot": "Left",
+        "strongFoot": "Right",
+        "team_id": 4
+    },
+    {
+        "name": "Lavell Juan",
+        "position": "CF",
+        "goals": 4,
+        "jerseyNumber": 18,
+        "weakFoot": "Left",
+        "strongFoot": "Right",
+        "team_id": 1
+    },
+    {
+        "name": "Mark Edwards",
+        "position": "RW",
+        "goals": 0,
+        "jerseyNumber": 19,
+        "weakFoot": "Left",
+        "strongFoot": "Right",
+        "team_id": 1
+    },
+    {
+        "name": "Nastacia S",
+        "position": "LW",
+        "goals": 4,
+        "jerseyNumber": 20,
+        "weakFoot": "Right",
+        "strongFoot": "Left",
+        "team_id": 2
+    },
+    {
+        "name": "Pablo Villalon",
+        "position": "CM",
+        "goals": 5,
+        "jerseyNumber": 21,
+        "weakFoot": "Left",
+        "strongFoot": "Right",
+        "team_id": 2
+    },
+    {
+        "name": "Sequoyah W",
+        "position": "GK",
+        "goals": 5,
+        "jerseyNumber": 22,
+        "weakFoot": "Right",
+        "strongFoot": "Left",
+        "team_id": 3
+    },
+    {
+        "name": "Shane Tomonia",
+        "position": "RB",
+        "goals": 5,
+        "jerseyNumber": 24,
+        "weakFoot": "Left",
+        "strongFoot": "Right",
+        "team_id": 3
+    },
+    {
+        "name": "Steve Kamau",
+        "position": "LB",
+        "goals": 7,
+        "jerseyNumber": 25,
+        "weakFoot": "Left",
+        "strongFoot": "Right",
+        "team_id": 4
+    },
+    {
+        "name": "Sydnie Farrell",
+        "position": "CB",
+        "goals": 6,
+        "jerseyNumber": 26,
+        "weakFoot": "Left",
+        "strongFoot": "Right",
+        "team_id": 1
+    },
+    {
+        "name": "Zach Berger",
+        "position": "DCM",
+        "goals": 5,
+        "jerseyNumber": 27,
+        "weakFoot": "Left",
+        "strongFoot": "Right",
+        "team_id": 4
+    },
+    {
+        "name": "Zee",
+        "position": "CB",
+        "goals": 5,
+        "jerseyNumber": 23,
+        "weakFoot": "Left",
+        "strongFoot": "Right",
+        "team_id": 4
     }
 ]
