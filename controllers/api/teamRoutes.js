@@ -1,13 +1,11 @@
 const router = require('express').Router();
 const Team = require('../../models');
 const withAuth = require("../../utils/auth");
-const english_dict = require('../../languages/en.json');
-const arabic_dict = require('../../languages/ar.json');
+
 
 
 // POST route to create a new team with just name 
 router.post('/teams', withAuth, async (req, res) => {
-  const language_details = req.session.language === 'en' ? english_dict : arabic_dict;
     try {
       const newTeam = await Team.create({
         name: req.body.name
