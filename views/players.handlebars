@@ -1,12 +1,14 @@
 
+  <h2 class="text-center mt-4"> Players </h2>
+
   {{#if players}}
   <div id="container">
 
-    <table class="zebra">
+    <table class="zebra ">
 
-      <thead>
-        <tr>
-          <th>NAME</th>
+      <thead >
+        <tr >
+          <th >NAME</th>
           <th>POSITION</th>
           <th>GOALS</th>
           <th>JERSEY NUMBER</th>
@@ -44,10 +46,10 @@
 </a>
 
 <button class="delBtn" id="open-modal-btn">Delete Player</button>
-
+{{!-- MODAL --}}
 <div id="modal" class="modal">
 
-  <div class="modal-content">
+  <div class="row modal-content">
     <span class="close">&times;</span>
     <p>Please enter the name of the player you'd like to delete</p>
     <div>
@@ -61,6 +63,7 @@
     <button class= "delBtn" id="deletePlayerBtn">Delete Player</button>
   </div>
 </div>  
+{{!-- MODAL --}}
 </div>
 
 </div>

@@ -510,7 +510,7 @@ iframe {
 }
 /* --------------------TABLE----------------------- */
 
-@charset "UTF-8";
+
 
 html,
 body {
@@ -532,6 +532,7 @@ body {
   background-position: 130px center;
   padding-top: 20px;
   height: 50px;
+ 
 }
 
 #container {
@@ -550,6 +551,7 @@ table {
 
 .zebra {
   border: 1px solid #555;
+  
 }
 
 .zebra td {
@@ -565,20 +567,14 @@ table {
   border-bottom: 1px solid #828282;
   padding: 20px;
   background-color: #151515 !important;
-  background-image: -webkit-gradient(
-    linear,
-    left top,
-    left bottom,
-    from(#151515),
-    to(#404040)
-  ) !important;
+
   background-image: -webkit-linear-gradient(top, #151515, #404040) !important;
   background-image: -moz-linear-gradient(top, #151515, #404040) !important;
   background-image: -ms-linear-gradient(top, #151515, #404040) !important;
   background-image: -o-linear-gradient(top, #151515, #404040) !important;
   background-image: linear-gradient(top, #151515, #404040) !important;
   color: #fff !important;
-  font-weight: normal;
+  font-weight: bold;
 }
 
 .zebra tbody tr:nth-child(even) {
@@ -594,29 +590,6 @@ table {
 .zebra tr {
   background: #404040;
   color: #fff;
-}
-
-.play-btn {
-  width: 50px;
-  height: 50px;
-  border: none;
-  outline: none;
-  border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0);
-  color: #fff;
-  font-size: 2.5em;
-  z-index: 2;
-}
-.mute-btn {
-  width: 50px;
-  height: 50px;
-  border: none;
-  outline: none;
-  border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0);
-  color: #89bef0;
-  font-size: 2.5em;
-  z-index: 2;
 }
 
 .delBtn, .addBtn{
