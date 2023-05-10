@@ -17,7 +17,7 @@ router.get("/:id", withAuth, async (req, res) => {
 
     const player = playerData.get({ plain: true });
 
-    res.render("players", { player });
+    res.render("players", { player  });
   } catch (err) {
     console.error(err);
     res.status(500).json(err);
@@ -33,6 +33,7 @@ router.get("/addplayer", withAuth, (req, res) => {
 
 // GET route to list players
 router.get("/", withAuth, async (req, res) => {
+
   try {
     const playersData = await Player.findAll({
       include: [{ model: Team }],

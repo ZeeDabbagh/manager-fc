@@ -3,6 +3,7 @@ const router = express.Router();
 const { Player, Team } = require("../../models");
 const withAuth = require("../../utils/auth");
 
+
 // Create a new player
 router.post("/", withAuth, async (req, res) => {
   try {
@@ -34,6 +35,7 @@ router.post("/", withAuth, async (req, res) => {
 // Get the form to edit a player
 
 router.get("/:id/edit", withAuth, async (req, res) => {
+
   try {
     const player = await Player.findByPk(req.params.id);
     if (player) {

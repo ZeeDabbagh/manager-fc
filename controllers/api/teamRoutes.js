@@ -3,6 +3,7 @@ const Team = require('../../models');
 const withAuth = require("../../utils/auth");
 
 
+
 // POST route to create a new team with just name 
 router.post('/teams', withAuth, async (req, res) => {
     try {

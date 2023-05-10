@@ -1,8 +1,6 @@
 const router = require('express').Router();
 const { User } = require('../../models');
-const withAuth = require('../../utils/auth');
-const english_dict = require('../../languages/en.json');
-const arabic_dict = require('../../languages/ar.json');
+
 
 router.post('/', async (req, res) => {
   try {
@@ -47,9 +45,9 @@ router.post("/login", async (req, res) => {
       req.session.language = 'en';
 
       console.log(req.session)
-      const language_details = req.session.language === 'en' ? english_dict : arabic_dict;
-      res.render("homepage", { user: userData, message: "You are now logged in!" ,loggedIn:req.session.logged_in, language:language_details})
-      // res.json({ user: userData, message: "You are now logged in!" ,loggedIn:req.session.logged_in});
+      
+      res.render("homepage", { user: userData, message: "You are now logged in!" ,loggedIn:req.session.logged_in})
+     
     });
   } catch (err) {
     res.status(400).json(err);
