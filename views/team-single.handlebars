@@ -1,15 +1,41 @@
-<div class="row">
-  <div class="col-md-3">
-    <img class="ms-auto px-3" src="/images/{{filename}}" alt="{{name}} logo" />
-  </div>
-  <div class="col-md-9">
-    <h1>{{name}}</h1>
-    <h2>Coach: {{user.name}}</h2>
-    <h3>Players:</h3>
-    <ul>
+  <div class="max-vh-100 d-flex align-items-center">
+    
+    <section class="w-100 row justify-content-center">
+
+      <div class="col-10 col-md-6 col-lg-5">
+
+        <h1 class="display-3 text-center text-dark">
+          <img src="/images/{{name}}-lowres.png" alt="{{name}} logo">
+          {{name}}!
+           <img src="/images/{{name}}-lowres.png" alt="{{name}} logo">
+           </h1>
+
+        <h3 class="lead text-center text-dark">Coach: {{user.name}}</h3>
+        <p class="lead text-center text-dark">Players:</p>
+
+        <div class="table-responsive"> 
+      <table class="zebra">
+
+      <thead >
+        <tr >
+          <th >NAME</th>
+          <th>POSITION</th>
+          <th>JERSEY NUMBER</th>
+
+        </tr>
+      </thead>
+         <tbody>
       {{#each players as |player|}}
-        <li>{{this.name}} - {{this.position}}</li>
+      <tr>
+        <td>{{this.name}}</td>
+        <td>{{this.position}}</td>
+        <td>{{this.jerseyNumber}}</td>
+      </tr>
       {{/each}}
-    </ul>
+      </tbody>
+      </table>
+
+
+    </section>
+
   </div>
-</div>
