@@ -2,9 +2,10 @@
   <h2 class="text-center mt-4"> Players </h2>
 
   {{#if players}}
-  <div id="container">
+  <div class="container">
 
-    <table class="zebra ">
+    <div class="table-responsive"> 
+      <table class="zebra">
 
       <thead >
         <tr >
@@ -31,6 +32,10 @@
         {{/each}}
       </tbody>
     </table>
+
+    </div>
+
+    
     {{else}}
   <p>No players found.</p>
 {{/if}}

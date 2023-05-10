@@ -524,23 +524,6 @@ body {
   font-family: Georgia, "Times New Roman", Times, serif;
 }
 
-.zebra caption {
-  font-size: 20px;
-  font-weight: normal;
-  background: url(../img/zebratable.png);
-  background-repeat: no-repeat;
-  background-position: 130px center;
-  padding-top: 20px;
-  height: 50px;
- 
-}
-
-#container {
-  padding-top: 20px;
-  width: 960px;
-  margin: 0 auto;
-}
-
 table {
   border-collapse: collapse;
   border-spacing: 0;
@@ -567,12 +550,6 @@ table {
   border-bottom: 1px solid #828282;
   padding: 20px;
   background-color: #151515 !important;
-
-  background-image: -webkit-linear-gradient(top, #151515, #404040) !important;
-  background-image: -moz-linear-gradient(top, #151515, #404040) !important;
-  background-image: -ms-linear-gradient(top, #151515, #404040) !important;
-  background-image: -o-linear-gradient(top, #151515, #404040) !important;
-  background-image: linear-gradient(top, #151515, #404040) !important;
   color: #fff !important;
   font-weight: bold;
 }
