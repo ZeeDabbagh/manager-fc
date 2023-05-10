@@ -53,19 +53,20 @@
 <button class="delBtn" id="open-modal-btn">Delete Player</button>
 {{!-- MODAL --}}
 <div id="modal" class="modal">
+  <div class="modal-background">
 
-  <div class="row modal-content">
-    <span class="close">&times;</span>
-    <p>Please enter the name of the player you'd like to delete</p>
-    <div>
-      <label for="Delete Player">Player Name</label>
-      <input
-        type="text"
-        placeholder="Enter Player Name"
-        id="deletePlayerInput"
-      />
+    <div class="row modal-content">
+      <span class="close">&times;</span>
+      <p class="modalP">Please enter the name of the player you'd like to delete</p>
+      <div>
+        <input
+          type="text"
+          placeholder="Enter Player Name"
+          id="deletePlayerInput"
+        />
+      </div>
+      <button class= "delBtn" id="deletePlayerBtn">Delete Player</button>
     </div>
-    <button class= "delBtn" id="deletePlayerBtn">Delete Player</button>
   </div>
 </div>  
 {{!-- MODAL --}}

@@ -8,6 +8,12 @@ const closeBtn = modal.querySelector(".close");
 openModalBtn.addEventListener("click", function () {
   modal.style.display = "block";
 
+  var buttonId = this.id;
+  var modalContainer = document.getElementById("modal-container");
+  modalContainer.removeAttribute("class");
+  modalContainer.classList.add(buttonId);
+  document.body.classList.add("modal-active");
+
   const deletePlayerBtn = document.getElementById("deletePlayerBtn");
   deletePlayerBtn.addEventListener("click", deletePlayer);
 });
