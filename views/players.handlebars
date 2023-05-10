@@ -1,19 +1,26 @@
-{{#if players}}
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Position</th>
-        <th>Goals</th>
-        <th>Jersey Number</th>
-        <th>Weak Foot</th>
-        <th>Strong Foot</th>
-        <th>Team</th>
-      </tr>
-    </thead>
-    <tbody>
-      {{#each players}}
-        <tr>
+
+  <h2 class="text-center mt-4"> Players </h2>
+
+  {{#if players}}
+  <div class="container">
+
+    <div class="table-responsive"> 
+      <table class="zebra">
+
+      <thead >
+        <tr >
+          <th >NAME</th>
+          <th>POSITION</th>
+          <th>GOALS</th>
+          <th>JERSEY NUMBER</th>
+          <th>WEAK FOOT</th>
+          <th>STRONG FOOT</th>
+          <th>TEAM</th>
+        </tr>
+      </thead>
+      <tbody>
+              {{#each players}}
+       <tr>
           <td>{{name}}</td>
           <td>{{position}}</td>
           <td>{{goals}}</td>
@@ -22,22 +29,32 @@
           <td>{{strongFoot}}</td>
           <td>{{team.name}}</td>
         </tr>
-      {{/each}}
-    </tbody>
-  </table>
-{{else}}
+        {{/each}}
+      </tbody>
+    </table>
+
+    </div>
+
+    
+    {{else}}
   <p>No players found.</p>
 {{/if}}
 
+
+<div class="text-center">
+
+<div class="btn-group my-4">
+
+
 <a href="/addplayer">
-  <button type="submit" id="addPlayer">Add New Player</button>
+  <button class="addBtn" type="submit" id="addPlayer">Add New Player</button>
 </a>
 
-<button id="open-modal-btn">Delete Player</button>
-
+<button class="delBtn" id="open-modal-btn">Delete Player</button>
+{{!-- MODAL --}}
 <div id="modal" class="modal">
 
-  <div class="modal-content">
+  <div class="row modal-content">
     <span class="close">&times;</span>
     <p>Please enter the name of the player you'd like to delete</p>
     <div>
@@ -48,6 +65,11 @@
         id="deletePlayerInput"
       />
     </div>
-    <button id="deletePlayerBtn">Delete Player</button>
+    <button class= "delBtn" id="deletePlayerBtn">Delete Player</button>
   </div>
+</div>  
+{{!-- MODAL --}}
 </div>
+
+</div>
+

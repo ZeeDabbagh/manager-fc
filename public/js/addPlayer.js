@@ -31,6 +31,8 @@ async function newFormHandler(event) {
   } else {
     alert("Failed to add player");
   }
+  document.location.replace("/players");
+
 }
 
 // Control when the below code block runs: we want it only when the page loads.
