@@ -1,9 +1,11 @@
-<section class="container">
-  <h3 class="team-name"> {{team.name}} </h3>
+<div class="card-group">
+
+  <h5 class="team-name card-title"> {{team.name}} </h5>
 
   {{#each teams as |team|}}
   {{> team-details}}
   {{/each}}
 
+</div>
 
-</section>
+
