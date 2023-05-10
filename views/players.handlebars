@@ -1,19 +1,23 @@
-{{#if players}}
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Position</th>
-        <th>Goals</th>
-        <th>Jersey Number</th>
-        <th>Weak Foot</th>
-        <th>Strong Foot</th>
-        <th>Team</th>
-      </tr>
-    </thead>
-    <tbody>
-      {{#each players}}
+
+  {{#if players}}
+  <div id="container">
+
+    <table class="zebra">
+
+      <thead>
         <tr>
+          <th>NAME</th>
+          <th>POSITION</th>
+          <th>GOALS</th>
+          <th>JERSEY NUMBER</th>
+          <th>WEAK FOOT</th>
+          <th>STRONG FOOT</th>
+          <th>TEAM</th>
+        </tr>
+      </thead>
+      <tbody>
+              {{#each players}}
+       <tr>
           <td>{{name}}</td>
           <td>{{position}}</td>
           <td>{{goals}}</td>
@@ -22,18 +26,24 @@
           <td>{{strongFoot}}</td>
           <td>{{team.name}}</td>
         </tr>
-      {{/each}}
-    </tbody>
-  </table>
-{{else}}
+        {{/each}}
+      </tbody>
+    </table>
+    {{else}}
   <p>No players found.</p>
 {{/if}}
 
+
+<div class="text-center">
+
+<div class="btn-group my-4">
+
+
 <a href="/addplayer">
-  <button type="submit" id="addPlayer">Add New Player</button>
+  <button class="addBtn" type="submit" id="addPlayer">Add New Player</button>
 </a>
 
-<button id="open-modal-btn">Delete Player</button>
+<button class="delBtn" id="open-modal-btn">Delete Player</button>
 
 <div id="modal" class="modal">
 
@@ -48,6 +58,10 @@
         id="deletePlayerInput"
       />
     </div>
-    <button id="deletePlayerBtn">Delete Player</button>
+    <button class= "delBtn" id="deletePlayerBtn">Delete Player</button>
   </div>
+</div>  
 </div>
+
+</div>
+
