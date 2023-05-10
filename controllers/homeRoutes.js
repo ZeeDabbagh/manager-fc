@@ -4,7 +4,7 @@ const arabic_dict = require('../languages/ar.json');
 
 router.get('/', async (req, res) => {
   const language_details = req.session.language === 'en' ? english_dict : arabic_dict;
-  console.log(language_details)
+  // console.log(language_details)
   res.render('homepage',{loggedIn: req.session.logged_in, language:language_details} );
   });
 
@@ -14,8 +14,8 @@ router.get('/login', (req, res) => {
     res.redirect('/');
     return;
   }
-
-  res.render('login', {loggedIn: req.session.logged_in});
+  const language_details = req.session.language === 'en' ? english_dict : arabic_dict;
+  res.render('login', {loggedIn: req.session.logged_in, language:language_details});
 });
 
 router.get('/addplayer', (req, res) => {

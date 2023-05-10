@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const { User } = require('../../models');
-const withAuth = require('../../utils/auth');
 const english_dict = require('../../languages/en.json');
 const arabic_dict = require('../../languages/ar.json');
 

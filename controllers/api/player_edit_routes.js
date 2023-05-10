@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 const { Player, Team } = require("../../models");
 const withAuth = require("../../utils/auth");
+const english_dict = require('../../languages/en.json');
+const arabic_dict = require('../../languages/ar.json');
 
 // Create a new player
 router.post("/", withAuth, async (req, res) => {
@@ -34,10 +36,11 @@ router.post("/", withAuth, async (req, res) => {
 // Get the form to edit a player
 
 router.get("/:id/edit", withAuth, async (req, res) => {
+  const language_details = req.session.language === 'en' ? english_dict : arabic_dict;
   try {
     const player = await Player.findByPk(req.params.id);
     if (player) {
-      res.render("edit-player", { player });
+      res.render("edit-player", { player, language:language_details });
     } else {
       res.status(404).json({ message: "Player not found" });
     }

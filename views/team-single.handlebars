@@ -4,8 +4,8 @@
   </div>
   <div class="col-md-9">
     <h1>{{name}}</h1>
-    <h2>Coach: {{user.name}}</h2>
-    <h3>Players:</h3>
+    <h2>{{language.coach}}: {{user.name}}</h2>
+    <h3>{{language.players}}:</h3>
     <ul>
       {{#each players as |player|}}
         <li>{{this.name}} - {{this.position}}</li>
