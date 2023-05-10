@@ -1,0 +1,483 @@
+diff --git a/controllers/api/player_edit_routes.js b/controllers/api/player_edit_routes.js
+index 9b0c01d..89304cc 100644
+--- a/controllers/api/player_edit_routes.js
++++ b/controllers/api/player_edit_routes.js
+@@ -2,6 +2,8 @@ const express = require("express");
+ const router = express.Router();
+ const { Player, Team } = require("../../models");
+ const withAuth = require("../../utils/auth");
++const english_dict = require('../../languages/en.json');
++const arabic_dict = require('../../languages/ar.json');
+ 
+ // Create a new player
+ router.post("/", withAuth, async (req, res) => {
+@@ -34,10 +36,11 @@ router.post("/", withAuth, async (req, res) => {
+ // Get the form to edit a player
+ 
+ router.get("/:id/edit", withAuth, async (req, res) => {
++  const language_details = req.session.language === 'en' ? english_dict : arabic_dict;
+   try {
+     const player = await Player.findByPk(req.params.id);
+     if (player) {
+-      res.render("edit-player", { player });
++      res.render("edit-player", { player, language:language_details });
+     } else {
+       res.status(404).json({ message: "Player not found" });
+     }
+diff --git a/controllers/api/teamRoutes.js b/controllers/api/teamRoutes.js
+index d46bf75..1bd27c6 100644
+--- a/controllers/api/teamRoutes.js
++++ b/controllers/api/teamRoutes.js
+@@ -1,10 +1,13 @@
+ const router = require('express').Router();
+ const Team = require('../../models');
+ const withAuth = require("../../utils/auth");
++const english_dict = require('../../languages/en.json');
++const arabic_dict = require('../../languages/ar.json');
+ 
+ 
+ // POST route to create a new team with just name 
+ router.post('/teams', withAuth, async (req, res) => {
++  const language_details = req.session.language === 'en' ? english_dict : arabic_dict;
+     try {
+       const newTeam = await Team.create({
+         name: req.body.name
+diff --git a/controllers/api/userRoutes.js b/controllers/api/userRoutes.js
+index d060445..3a23b5f 100644
+--- a/controllers/api/userRoutes.js
++++ b/controllers/api/userRoutes.js
+@@ -1,6 +1,5 @@
+ const router = require('express').Router();
+ const { User } = require('../../models');
+-const withAuth = require('../../utils/auth');
+ const english_dict = require('../../languages/en.json');
+ const arabic_dict = require('../../languages/ar.json');
+ 
+diff --git a/controllers/homeRoutes.js b/controllers/homeRoutes.js
+index ffa10ba..6e79c20 100644
+--- a/controllers/homeRoutes.js
++++ b/controllers/homeRoutes.js
+@@ -4,7 +4,7 @@ const arabic_dict = require('../languages/ar.json');
+ 
+ router.get('/', async (req, res) => {
+   const language_details = req.session.language === 'en' ? english_dict : arabic_dict;
+-  console.log(language_details)
++  // console.log(language_details)
+   res.render('homepage',{loggedIn: req.session.logged_in, language:language_details} );
+   });
+ 
+@@ -14,8 +14,8 @@ router.get('/login', (req, res) => {
+     res.redirect('/');
+     return;
+   }
+-
+-  res.render('login', {loggedIn: req.session.logged_in});
++  const language_details = req.session.language === 'en' ? english_dict : arabic_dict;
++  res.render('login', {loggedIn: req.session.logged_in, language:language_details});
+ });
+ 
+ router.get('/addplayer', (req, res) => {
+diff --git a/controllers/playerRoutes.js b/controllers/playerRoutes.js
+index 24b5680..274a02d 100644
+--- a/controllers/playerRoutes.js
++++ b/controllers/playerRoutes.js
+@@ -2,6 +2,8 @@ const express = require("express");
+ const router = express.Router();
+ const { Player, Team } = require("../models");
+ const withAuth = require("../utils/auth");
++const english_dict = require('../languages/en.json');
++const arabic_dict = require('../languages/ar.json');
+ 
+ // GET /players/:id - Show details for a specific player
+ router.get("/:id", withAuth, async (req, res) => {
+@@ -17,7 +19,7 @@ router.get("/:id", withAuth, async (req, res) => {
+ 
+     const player = playerData.get({ plain: true });
+ 
+-    res.render("players", { player });
++    res.render("players", { player, language:language_details  });
+   } catch (err) {
+     console.error(err);
+     res.status(500).json(err);
+@@ -33,6 +35,8 @@ router.get("/addplayer", withAuth, (req, res) => {
+ 
+ // GET route to list players
+ router.get("/", withAuth, async (req, res) => {
++  const language_details = req.session.language === 'en' ? english_dict : arabic_dict;
++
+   try {
+     const playersData = await Player.findAll({
+       include: [{ model: Team }],
+@@ -41,7 +45,7 @@ router.get("/", withAuth, async (req, res) => {
+ 
+     const players = playersData.map((player) => player.get({ plain: true }));
+ 
+-    res.render("players", { players });
++    res.render("players", { players, language:language_details  });
+   } catch (err) {
+     console.error(err);
+     res.status(500).json(err);
+diff --git a/controllers/teamRoutes.js b/controllers/teamRoutes.js
+index d856efb..481293b 100644
+--- a/controllers/teamRoutes.js
++++ b/controllers/teamRoutes.js
+@@ -2,9 +2,13 @@ const express = require("express");
+ const router = express.Router();
+ const { Player, Team, User } = require("../models");
+ const withAuth = require("../utils/auth");
++const english_dict = require('../languages/en.json');
++const arabic_dict = require('../languages/ar.json');
++
+ 
+ // GET / - Home page with a list of all teams
+ router.get("/", withAuth, async (req, res) => {
++  const language_details = req.session.language === 'en' ? english_dict : arabic_dict;
+   try {
+     const teamsData = await Team.findAll({
+       include: [{ model: Player }],
+@@ -12,7 +16,7 @@ router.get("/", withAuth, async (req, res) => {
+ 
+     const teams = teamsData.map((team) => team.get({ plain: true }));
+ 
+-    res.render("teamsAndPlayers", { teams });
++    res.render("teamsAndPlayers", { teams, language:language_details} );
+   } catch (err) {
+     console.error(err);
+     res.status(500).json(err);
+@@ -24,6 +28,7 @@ module.exports = router;
+ // GET route for single team info
+ 
+ router.get("/:id", withAuth, async (req, res) => {
++  const language_details = req.session.language === 'en' ? english_dict : arabic_dict;
+   try {
+     const team = await Team.findByPk(req.params.id, {
+       include: [
+@@ -54,7 +59,7 @@ router.get("/:id", withAuth, async (req, res) => {
+       }
+     
+     }
+-    res.render("team-single", teamPlain);
++    res.render("team-single", teamPlain, { language:language_details });
+   } catch (err) {
+     console.log(err);
+     res.status(500).json(err);
+diff --git a/languages/ar.json b/languages/ar.json
+index 29141f6..54bc174 100644
+--- a/languages/ar.json
++++ b/languages/ar.json
+@@ -18,6 +18,7 @@
+     "right": "يمين",
+     "left": "يسار",
+     "team": "الفريق",
+-    "add-new-player": "اضف لاعب جديد"
++    "add-new-player": "اضف لاعب جديد",
++    "button": "English"
+   }
+   
+\ No newline at end of file
+diff --git a/languages/en.json b/languages/en.json
+index 3602487..cb61551 100644
+--- a/languages/en.json
++++ b/languages/en.json
+@@ -18,6 +18,7 @@
+     "right": "Right",
+     "left": "Left",
+     "team": "Team",
+-    "add-new-player": "Add New Player"
++    "add-new-player": "Add New Player",
++    "button": "العربية"
+   }
+   
+\ No newline at end of file
+diff --git a/views/layouts/main.handlebars b/views/layouts/main.handlebars
+index 256a899..9170540 100644
+--- a/views/layouts/main.handlebars
++++ b/views/layouts/main.handlebars
+@@ -46,7 +46,7 @@
+ 
+             </li>
+             <li>
+-              <button id="langSwitch">Switch Language</button>
++              <button id="langSwitch">{{language.button}}</button>
+             </li>
+           </ul>
+         </div>
+diff --git a/views/login.handlebars b/views/login.handlebars
+index 6588881..3a504b3 100644
+--- a/views/login.handlebars
++++ b/views/login.handlebars
+@@ -3,21 +3,21 @@
+ <form class="mx-3 mt-3 p-4 border border-secondary rounded login-form text-center">
+   <div class="form-group row">
+     <div class="col">
+-       <label for="email-login" class="col-sm-2 col-form-label">email</label>
++       <label for="email-login" class="col-sm-2 col-form-label">{{language.email}}</label>
+     <input class="form-input" type="text" id="email-login" />
+     </div>
+   </div>
+ 
+   <div class="form-group row">
+     <div class="col my-2">
+-      <label for="password-login" class="col-sm-2 col-form-label">password</label>
++      <label for="password-login" class="col-sm-2 col-form-label">{{language.password}}</label>
+     <input class="form-input" type="password" id="password-login" />
+     </div>
+     
+   </div>
+   <div class="form-group row">
+     <div class="col ">
+-       <button class="btn btn-secondary px-3 w-15" type="submit">login</button>
++       <button class="btn btn-secondary px-3 w-15" type="submit">{{language.login}}</button>
+     </div>
+      
+     
+diff --git a/views/new-player.handlebars b/views/new-player.handlebars
+index e4f1bf1..c99d6f2 100644
+--- a/views/new-player.handlebars
++++ b/views/new-player.handlebars
+@@ -1,12 +1,12 @@
+ <h1>Add a New Player</h1>
+-<<<<<<< Updated upstream
++
+ <form
+   class="mx-3 mt-3 p-4 border border-secondary rounded"
+   id="new-player-form"
+ >
+   <div class="row">
+     <div class="col">
+-      <label for="Player name">Player Name</label>
++      <label for="Player name">{{language.name}}</label>
+       <input
+         type="text"
+         class="form-control"
+@@ -15,7 +15,7 @@
+       />
+     </div>
+     <div class="col">
+-      <label for="Jersey Number">Jersey Number</label>
++      <label for="Jersey Number">{{language.jersey-number}}</label>
+       <input
+         type="text"
+         class="form-control"
+@@ -28,61 +28,22 @@
+   <div class="row">
+     <div class="col">
+       <div class="form-group col-md-4">
+-        <label for="inputState">Right foot</label>
+-        <select id="rightFoot" class="form-control">
+-          <option selected>Choose...</option>
+-          <option>Weak</option>
+-          <option>Strong</option>
+-        </select>
+-      </div>
+-    </div>
+-    <div class="col">
+-=======
+-<form
+-  class="mx-3 mt-3 p-4 border border-secondary rounded"
+-  id="new-player-form"
+->
+-  <div class="row">
+-    <div class="col">
+-      <label for="Player name">Player Name</label>
+-      <input
+-        type="text"
+-        class="form-control"
+-        placeholder="First name"
+-        id="playerName"
+-      />
+-    </div>
+-    <div class="col">
+-      <label for="Jersey Number">Jersey Number</label>
+-      <input
+-        type="text"
+-        class="form-control"
+-        placeholder="Last name"
+-        id="jerseyNumber"
+-      />
+-    </div>
+-  </div>
+-  <hr />
+-  <div class="row">
+-    <div class="col">
+-      <div class="form-group col-md-4">
+-        <label for="inputState">Right Foot</label>
++        <label for="inputState">{{language.right}}</label>
+         <select id="rightFoot" class="form-control">
+           <option selected>Choose...</option>
+-          <option>Weak</option>
+-          <option>Strong</option>
++          <option>{{language.weak-foot}}</option>
++          <option>{{language.strong-foot}}</option>
+         </select>
+       </div>
+     </div>
+     <div class="col">
+->>>>>>> Stashed changes
+ 
+       <div class="form-group col-md-4">
+-        <label for="inputState">Left Foot</label>
++        <label for="inputState">{{language.left}}</label>
+         <select id="leftFoot" class="form-control">
+           <option selected>Choose...</option>
+-          <option>Weak</option>
+-          <option>Strong</option>
++          <option>{{language.weak-foot}}</option>
++          <option>{{language.strong-foot}}</option>
+         </select>
+       </div>
+     </div>
+@@ -91,7 +52,7 @@
+ 
+   <hr />
+   <div class="form-group col-md-4">
+-    <label for="inputState">Position</label>
++    <label for="inputState">{{language.position}}</label>
+     <select id="position" class="form-control">
+       <option selected>Choose...</option>
+       <option>LB</option>
+@@ -105,7 +66,7 @@
+     </select>
+   </div>
+   <div class="form-group col-md-4">
+-    <label for="team">Team</label>
++    <label for="team">{{language.team}}</label>
+     <select id="team" class="form-control">
+       <option selected>Choose...</option>
+       <option>Devils</option>
+diff --git a/views/players.handlebars b/views/players.handlebars
+index ad954ed..591a932 100644
+--- a/views/players.handlebars
++++ b/views/players.handlebars
+@@ -2,13 +2,13 @@
+   <table>
+     <thead>
+       <tr>
+-        <th>Player Name</th>
+-        <th>Position</th>
+-        <th>Goals</th>
+-        <th>Jersey Number</th>
+-        <th>Weak Foot</th>
+-        <th>Strong Foot</th>
+-        <th>Team</th>
++        <th>{{language.name}}</th>
++        <th>{{language.position}}</th>
++        <th>{{language.goals}}</th>
++        <th>{{language.jersey-number}}</th>
++        <th>{{language.weak-foot}}</th>
++        <th>{{language.strong-foot}}</th>
++        <th>{{language.team}}</th>
+       </tr>
+     </thead>
+     <tbody>
+diff --git a/views/team-single.handlebars b/views/team-single.handlebars
+index c55d9c3..32fbe7b 100644
+--- a/views/team-single.handlebars
++++ b/views/team-single.handlebars
+@@ -4,8 +4,8 @@
+   </div>
+   <div class="col-md-9">
+     <h1>{{name}}</h1>
+-    <h2>Coach: {{user.name}}</h2>
+-    <h3>Players:</h3>
++    <h2>{{language.coach}}: {{user.name}}</h2>
++    <h3>{{language.players}}:</h3>
+     <ul>
+       {{#each players as |player|}}
+         <li>{{this.name}} - {{this.position}}</li>
+diff --git a/views/test.html b/views/test.html
+deleted file mode 100644
+index 5259495..0000000
+--- a/views/test.html
++++ /dev/null
+@@ -1,89 +0,0 @@
+-<!DOCTYPE html>
+-<html lang="en">
+-<head>
+-    <meta charset="UTF-8">
+-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+-    <title>test</title>
+-    <link
+-    rel="stylesheet"
+-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+-  />
+-</head>
+-<body>
+-    <h1>Add a New Player</h1>
+-<form class="mx-3 mt-3 p-4 border border-secondary rounded" id="new-player-form">
+-        <div class="row">
+-            <div class="col">
+-                <label for="Player name">Player Name</label>
+-              <input type="text" class="form-control" placeholder="First name" id="playerName">
+-            </div>
+-            <div class="col">
+-                <label for="Jersey Number">Jersey Number</label>
+-              <input type="text" class="form-control" placeholder="Last name" id="jerseyNumber">
+-            </div>
+-          </div>
+-          <hr>
+-          <div class="row">
+-            <div class="col">
+-                <div class="form-group col-md-4">
+-                <label for="inputState">Right foot</label>
+-                <select id="rightFoot" class="form-control">
+-                  <option selected>Choose...</option>
+-                  <option>Weak</option>
+-                  <option>Strong</option>
+-                </select>
+-              </div>
+-            </div>
+-            <div class="col">
+-
+-                <div class="form-group col-md-4">
+-                    <label for="inputState">Left Foot</label>
+-                    <select id="leftFoot" class="form-control">
+-                      <option selected>Choose...</option>
+-                      <option>Weak</option>
+-                      <option>Strong</option>
+-                    </select>
+-                  </div>
+-            </div>
+-    
+-                
+-                
+-
+-          </div>
+-         
+-          
+-          <hr>
+-        <div class="form-group col-md-4">
+-            <label for="inputState">Position</label>
+-            <select id="position" class="form-control">
+-              <option selected>Choose...</option>
+-              <option>LB</option>
+-              <option>CB</option>
+-              <option>DCM</option>
+-              <option>CF</option>
+-              <option>RW</option>
+-              <option>LW</option>
+-              <option>CM</option>
+-              <option>CAM</option>
+-            </select>
+-          </div>
+-          <div class="form-group col-md-4">
+-            <label for="inputState">Team</label>
+-            <select id="inputState" class="form-control">
+-              <option selected>Choose...</option>
+-              <option>Devils</option>
+-              <option>Lightning</option>
+-              <option>Chargers</option>
+-              <option>Bobcats</option>
+-            </select>
+-          </div>
+-          <button type="submit" class="btn btn-secondary mt-4 px-5">Submit</button>
+-      </form>
+-</body>
+-<script
+-src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+-integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+-crossorigin="anonymous"
+-></script>
+-</html>
+\ No newline at end of file
