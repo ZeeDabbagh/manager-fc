@@ -29,21 +29,23 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link" href="/">Home</a>
+              <a class="nav-link" href="/">{{language.home}}</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/teams">Teams</a>
+              <a class="nav-link" href="/teams">{{language.teams}}</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/players">Players</a>
+              <a class="nav-link" href="/players">{{language.players}}</a>
             </li>
             <li class="nav-item">
               {{#if loggedIn}}
-                <a id="logout" class="nav-link">Logout</a>
+                <a id="logout" class="nav-link">{{language.logout}}</a>
               {{else}}
-                <a class="nav-link" href="/login">Login</a>
+                <a class="nav-link" href="/login">{{language.login}}</a>
               {{/if}}
-
+            </li>
+            <li>
+              <button class= "btn btn-secondary" id="langSwitch">{{language.button}}</button>
             </li>
           </ul>
         </div>
@@ -59,6 +61,7 @@
     <script src="/js/deletePlayer.js"></script>
     <script src="/js/addPlayer.js"></script>
     <script src="/js/logout.js"></script>
+      <script src="/js/languageSwitcher.js"></script>
   </body>
 
 </html>

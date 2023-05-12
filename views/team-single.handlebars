@@ -5,27 +5,27 @@
       <div class="col-10 col-md-6 col-lg-5">
 
         <h1 class="display-3 text-center text-dark">
-          <img src="/images/{{name}}-lowres.png" alt="{{name}} logo">
-          {{name}}!
-           <img src="/images/{{name}}-lowres.png" alt="{{name}} logo">
+          <img src="/images/{{team.name}}-lowres.png" alt="{{team.name}} logo">
+          {{team.name}}!
+           <img src="/images/{{team.name}}-lowres.png" alt="{{team.name}} logo">
            </h1>
 
-        <h3 class="lead text-center text-dark">Coach: {{user.name}}</h3>
-        <p class="lead text-center text-dark">Players:</p>
+        <h3 class="lead text-center text-dark">{{language.coach}}: {{team.user.name}}</h3>
+        <p class="lead text-center text-dark">{{language.players}}:</p>
 
         <div class="table-responsive"> 
       <table class="zebra">
 
       <thead >
         <tr >
-          <th >NAME</th>
-          <th>POSITION</th>
-          <th>JERSEY NUMBER</th>
+          <th >{{language.name}}</th>
+          <th>{{language.position}}</th>
+          <th>{{language.jersey-number}}</th>
 
         </tr>
       </thead>
          <tbody>
-      {{#each players as |player|}}
+      {{#each team.players as |player|}}
       <tr>
         <td>{{this.name}}</td>
         <td>{{this.position}}</td>

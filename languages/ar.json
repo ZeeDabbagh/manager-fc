@@ -1,7 +1,7 @@
 {
     "home": "الرئيسية",
-    "players": "فرق",
-    "teams": "لاعبون",
+    "players": "لاعبون",
+    "teams": "فرق",
     "login": "تسجيل دخول",
     "logout": "تسجيل خروج",
     "final-score": "النتائج",
@@ -19,6 +19,10 @@
     "left": "يسار",
     "team": "الفريق",
     "add-new-player": "اضف لاعب جديد",
-    "button": "English"
+    "button": "English",
+    "coach-login": "تسجيل دخول المدرب",
+    "delete-player": "حذف لاعب",
+    "delete-message": "ادخل اسم اللاعب الذي تود حذفه",
+    "submit": "اضف اللاعب"
   }
   
