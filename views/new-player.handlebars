@@ -1,5 +1,5 @@
 <div class="text-center my-4">
-  <h1>Add a New Player</h1>
+  <h1>{{language.add-new-player}}!</h1>
 </div>
 
 
@@ -10,7 +10,7 @@
 >
   <div class="row">
     <div class="col">
-      <label for="Player name">Name</label>
+      <label for="Player name">{{language.name}}</label>
       <input
         type="text"
         class="form-control"
@@ -19,7 +19,7 @@
       />
     </div>
     <div class="col">
-      <label for="Jersey Number">Jersey Number</label>
+      <label for="Jersey Number">{{language.jersey-number}}</label>
       <input
         type="text"
         class="form-control"
@@ -32,22 +32,22 @@
   <div class="row">
     <div class="col">
       <div class="form-group col-md-4">
-        <label for="inputState">Right Foot</label>
+        <label for="inputState">{{language.right}}</label>
         <select id="rightFoot" class="form-control">
           <option selected>Choose...</option>
-          <option>Weak</option>
-          <option>Strong</option>
+          <option>{{language.weak-foot}}</option>
+          <option>{{language.strong-foot}}</option>
         </select>
       </div>
     </div>
     <div class="col">
 
       <div class="form-group col-md-4">
-        <label for="inputState">Left Foot</label>
+        <label for="inputState">{{language.left}}</label>
         <select id="leftFoot" class="form-control">
           <option selected>Choose...</option>
-          <option>Weak</option>
-          <option>Strong</option>
+          <option>{{language.weak-foot}}</option>
+          <option>{{language.strong-foot}}</option>
         </select>
       </div>
     </div>
@@ -56,7 +56,7 @@
 
   <hr />
   <div class="form-group col-md-4">
-    <label for="inputState">Position</label>
+    <label for="inputState">{{language.position}}</label>
     <select id="position" class="form-control">
       <option selected>Choose...</option>
       <option>LB</option>
@@ -70,7 +70,7 @@
     </select>
   </div>
   <div class="form-group col-md-4">
-    <label for="team">Team</label>
+    <label for="team">{{language.team}}</label>
     <select id="team" class="form-control">
       <option selected>Choose...</option>
       <option>Devils</option>
@@ -79,5 +79,5 @@
       <option>Bobcats</option>
     </select>
   </div>
-  <button type="submit" class="btn btn-secondary mt-4 px-5">Submit</button>
+  <button type="submit" class="btn btn-secondary mt-4 px-5">{{language.submit}}</button>
 </form>

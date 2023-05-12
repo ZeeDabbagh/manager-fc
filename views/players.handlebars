@@ -1,5 +1,5 @@
 
-  <h2 class="text-center mt-4"> Players </h2>
+  <h2 class="text-center mt-4"> {{language.players}} </h2>
 
   {{#if players}}
   <div class="container">
@@ -9,13 +9,13 @@
 
       <thead >
         <tr >
-          <th >NAME</th>
-          <th>POSITION</th>
-          <th>GOALS</th>
-          <th>JERSEY NUMBER</th>
-          <th>WEAK FOOT</th>
-          <th>STRONG FOOT</th>
-          <th>TEAM</th>
+          <th >{{language.name}}</th>
+          <th>{{language.position}}</th>
+          <th>{{language.goals}}</th>
+          <th>{{language.jersey-number}}</th>
+          <th>{{language.weak-foot}}</th>
+          <th>{{language.strong-foot}}</th>
+          <th>{{language.team}}</th>
         </tr>
       </thead>
       <tbody>
@@ -47,17 +47,17 @@
 
 
 <a href="/addplayer">
-  <button class="addBtn" type="submit" id="addPlayer">Add New Player</button>
+  <button type="submit" class="addBtn" id="addPlayer">{{language.add-new-player}}</button>
 </a>
 
-<button class="delBtn" id="open-modal-btn">Delete Player</button>
+<button class="delBtn" id="open-modal-btn">{{language.delete-player}}</button>
 {{!-- MODAL --}}
 <div id="modal" class="modal">
   <div class="modal-background">
 
     <div class="row modal-content">
       <span class="close">&times;</span>
-      <p class="modalP">Please enter the name of the player you'd like to delete</p>
+      <p class="modalP">{{language.delete-message}}</p>
       <div>
         <input
           type="text"
@@ -65,7 +65,7 @@
           id="deletePlayerInput"
         />
       </div>
-      <button class= "delBtn" id="deletePlayerBtn">Delete Player</button>
+      <button class= "delBtn" id="deletePlayerBtn">{{language.delete-player}}</button>
     </div>
   </div>
 </div>  

@@ -19,6 +19,10 @@
     "left": "Left",
     "team": "Team",
     "add-new-player": "Add New Player",
-    "button": "العربية"
+    "button": "العربية",
+    "coach-login": "Coach Login",
+    "delete-player": "Delete Player",
+    "delete-message": "Please enter the name of the player you'd like to delete",
+    "submit": "Submit"
   }
   
