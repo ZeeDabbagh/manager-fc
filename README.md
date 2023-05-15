@@ -11,7 +11,7 @@
 - [License](#License)
 
 ## Description
-Manager-FC is a fullstack application that was created for the purposes of making team managment simpler and more efficient. With this application, coaches/managers are able track their team's progress throughtout their respective leagues, monitor players performances by viewing the player stats, and updating changes to their tactical agenda which the team can then following prior to attending games.  
+Manager-FC is a fullstack application that was created for the purposes of making team management simpler and more efficient. With this application, coaches/managers are able track their team's progress throughout their respective leagues, monitor players performances by viewing the player stats, and updating changes to their tactical agenda which the team can then following prior to attending games.  
 
 ## Screenshot
 ![screenshot](./public/images/Screenshot%202023-05-10%20at%205.02.16%20PM.png)
