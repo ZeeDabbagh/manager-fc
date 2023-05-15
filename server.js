@@ -1,19 +1,18 @@
-const path = require('path');
-const express = require('express');
-const session = require('express-session');
-const exphbs = require('express-handlebars');
-const routes = require('./controllers');
-const dotenv = require('dotenv');
-const glob = require('glob');
+const path = require("path");
+const express = require("express");
+const session = require("express-session");
+const exphbs = require("express-handlebars");
+const routes = require("./controllers");
 
-dotenv.config();
+require("dotenv").config();
+
+const sequelize = require("./config/connection");
+const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-const hbs = exphbs.create();
-
-const language_dict = {};
+const hbs = exphbs.create({});
 
 const sess = {
   secret: process.env.SECRET,
@@ -21,45 +20,26 @@ const sess = {
     maxAge: 300000,
     httpOnly: true,
     secure: false,
-    sameSite: 'strict',
-   
+    sameSite: "strict",
   },
   resave: false,
   saveUninitialized: true,
-  
+  store: new SequelizeStore({
+    db: sequelize,
+  }),
 };
 
 app.use(session(sess));
 
-app.engine('handlebars', hbs.engine);
-app.set('view engine', 'handlebars');
+app.engine("handlebars", hbs.engine);
+app.set("view engine", "handlebars");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
-
-// Load language files and build language_dict
-glob.sync('./languages/*.json').forEach(function(file) {
-  const lang = path.basename(file, '.json');
-  const data = require(file);
-  language_dict[lang] = data;
-});
-
-app.use(function(req, res, next) {
-  // Get the language code from the URL or use default
-  const code = req.path.split('/')[1] || 'en';
-
-  // Set the language in the session
-  req.session.lang = code;
-
-  // Set the language data in res.locals for use in templates
-  res.locals.lang = language_dict[code] || {};
-
-  next();
-});
+app.use(express.static(path.join(__dirname, "public")));
 
 app.use(routes);
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+sequelize.sync({ force: false }).then(() => {
+  app.listen(PORT, () => console.log("Now listening"));
 });
