@@ -1,14 +1,12 @@
 const router = require('express').Router();
-const english_dict = require('../languages/en.json');
-const arabic_dict = require('../languages/ar.json');
+const determineLanguage = require('../utils/determineLanguage')
+
+
 
 router.get('/', async (req, res) => {
-  // console.log(language_details)
   res.render('homepage',{loggedIn: req.session.logged_in, language: determineLanguage(req.session.language)} );
   });
-function determineLanguage(language) {
-  return language === 'ar' ?  arabic_dict: english_dict;
-}
+
 
 router.get('/login', (req, res) => {
   if (req.session.logged_in) {
@@ -34,30 +32,24 @@ router.post('/switchLanguage', (req, res) => {
   
 
   const username = req.session.user_id;
-  var lang = 'en';
+  var lang;
   if (req.session.language === 'en') {
     lang = 'ar';
   } else {
     lang= 'en';
   }
   console.log("language " + lang);
-  var actual_dictionary = lang === 'en' ? english_dict : arabic_dict;
-var defLoggedIn = req.session.logged_in
+
   req.session.save(() => {
+    if (username)
     req.session.user_id = username;
-    req.session.logged_in = defLoggedIn
-    // req.session.logged_in = true; <-- this line is the issue
     req.session.language = lang;
     
     res.json("success");
-    //res.redirect('/');
-    // res.json({ user: userData, message: "You are now logged in!" ,loggedIn:req.session.logged_in});
-  });
-  console.log(actual_dictionary);
-  //res.render('homepage',{loggedIn: req.session.logged_in,actual_dictionary } );
- 
 
-  //
+  });
+
+
 });
 
 module.exports = router;

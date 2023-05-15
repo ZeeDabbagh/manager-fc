@@ -2,12 +2,9 @@ const express = require("express");
 const router = express.Router();
 const { Player, Team, User } = require("../models");
 const withAuth = require("../utils/auth");
-const english_dict = require('../languages/en.json');
-const arabic_dict = require('../languages/ar.json');
+const determineLanguage = require('../utils/determineLanguage')
 
-function determineLanguage(language) {
-    return language === 'en' ? english_dict : arabic_dict;
-  }
+
 // GET / - Home page with a list of all teams
 router.get("/", withAuth, async (req, res) => {
   

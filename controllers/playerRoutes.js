@@ -2,12 +2,8 @@ const express = require("express");
 const router = express.Router();
 const { Player, Team } = require("../models");
 const withAuth = require("../utils/auth");
-const english_dict = require('../languages/en.json');
-const arabic_dict = require('../languages/ar.json');
+const determineLanguage = require('../utils/determineLanguage')
 
-function determineLanguage(language) {
-  return language === 'ar' ?  arabic_dict: english_dict;
-}
 
 // GET /players/:id - Show details for a specific player
 router.get("/:id", withAuth, async (req, res) => {

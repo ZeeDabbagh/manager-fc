@@ -58,9 +58,10 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="/js/deletePlayer.js"></script>
-    <script src="/js/addPlayer.js"></script>
+
+    {{#if loggedIn}}
     <script src="/js/logout.js"></script>
+    {{/if}}
       <script src="/js/languageSwitcher.js"></script>
   </body>
 
