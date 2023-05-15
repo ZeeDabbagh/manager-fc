@@ -1,0 +1,108 @@
+<div class="container">
+  <div class="row">
+    <div class="signup-form">
+      <div>
+        <div class="wrap-login100">
+
+          <form class="signup-form">
+            <span class="login100-form-title">
+              {{language.register}}
+            </span>
+
+            <div class="wrap-input100">
+              <input
+                class="input100"
+                type="text"
+                name="name"
+                placeholder="{{language.name}}"
+                id="name-signup"
+              />
+            </div>
+
+            <div class="wrap-input100">
+              <input
+                class="input100"
+                type="text"
+                name="email"
+                placeholder="{{language.email}}"
+                id="email-signup"
+              />
+            </div>
+
+            <div class="wrap-input100">
+              <input
+                class="input100"
+                type="password"
+                name="pass"
+                placeholder="{{language.password}}"
+                id="password-signup"
+              />
+            </div>
+
+            <div class="container-login100-form-btn">
+              <button type="submit" class="login100-form-btn mb-4">
+                {{language.register}}
+              </button>
+            </div>
+            <a href="/login">{{language.login}}</a>
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="/js/register.js"></script>
+
+{{! 
+<div class="container">
+  <div class="row main">
+    <div class="panel-heading col-md-12">
+      <p class="text-center">Register</p>
+    </div>
+    <div class="main-login main-center">
+      <form class="form-horizontal signup-form">
+
+        <div class="form-group">
+          <label for="name" class="cols-sm-2 control-label" id="name-signup">Your Name</label>
+          <div class="cols-sm-10">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+              <input type="text" class="form-control" name="name" id="name" placeholder="Enter your Name" />
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email" class="cols-sm-2 control-label" id="email-signup">Your Email</label>
+          <div class="cols-sm-10">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+              <input type="text" class="form-control" name="email" id="email" placeholder="Enter your Email" />
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="password" class="cols-sm-2 control-label" id="password-signup">Password</label>
+          <div class="cols-sm-10">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+              <input type="password" class="form-control" name="password" id="password" placeholder="Enter your Password" />
+            </div>
+          </div>
+        </div>
+
+
+        <div class="form-group ">
+          <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Register</button>
+        </div>
+        <div class="login-register">
+          <a href="/login">Login</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div> }}

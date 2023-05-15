@@ -23,5 +23,6 @@
   "coach-login": "Coach Login",
   "delete-player": "Delete Player",
   "delete-message": "Please enter the name of the player you'd like to delete",
-  "submit": "Submit"
+  "submit": "Submit",
+  "register": "Register"
 }
