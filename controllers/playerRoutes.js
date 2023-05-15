@@ -23,7 +23,7 @@ router.get("/:id", withAuth, async (req, res) => {
 
     const player = playerData.get({ plain: true });
 
-    res.render("players", { player  });
+    res.render("players", {loggedIn: req.session.logged_in, player  });
   } catch (err) {
     console.error(err);
     res.status(500).json(err);
@@ -33,7 +33,7 @@ router.get("/:id", withAuth, async (req, res) => {
 
 // GET /players/new - Show a form to create a new player
 router.get("/addplayer", withAuth, (req, res) => {
-  res.render("new-player", {language: determineLanguage(req.session.language)});
+  res.render("new-player", {loggedIn: req.session.logged_in, language: determineLanguage(req.session.language)});
 });
 
 
@@ -49,7 +49,7 @@ router.get("/", withAuth, async (req, res) => {
 
     const players = playersData.map((player) => player.get({ plain: true }));
 
-    res.render("players", { oggedIn: req.session.logged_in, players, language:determineLanguage(req.session.language) });
+    res.render("players", { loggedIn: req.session.logged_in, players, language:determineLanguage(req.session.language) });
   } catch (err) {
     console.error(err);
     res.status(500).json(err);

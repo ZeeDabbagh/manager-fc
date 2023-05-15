@@ -18,7 +18,7 @@ router.get("/", withAuth, async (req, res) => {
 
     const teams = teamsData.map((team) => team.get({ plain: true }));
 
-    res.render("teamsAndPlayers", { teams, language:determineLanguage(req.session.language)} );
+    res.render("teamsAndPlayers", { loggedIn: req.session.logged_in, teams, language:determineLanguage(req.session.language)} );
   } catch (err) {
     console.error(err);
     res.status(500).json(err);
@@ -61,7 +61,7 @@ router.get("/:id", withAuth, async (req, res) => {
       }
     
     }
-    res.render("team-single", {team:teamPlain, language:determineLanguage(req.session.language)});
+    res.render("team-single", {loggedIn: req.session.logged_in, team:teamPlain, language:determineLanguage(req.session.language)});
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
