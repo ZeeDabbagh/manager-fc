@@ -1,67 +1,67 @@
 .score-table {
-    width: 80%;
-    border-collapse: collapse;
-    font-size: 14px;
-    line-height: 1.5;
-    margin: 15px;
-    box-shadow: 10px 5px 5px grey;
-  }
-  
-  .score-table th,
-  .score-table td {
-    padding: 10px;
-    text-align: center;
-    vertical-align: middle;
-    border: 1px ;
-  }
-  
-  .score-table th {
-    font-weight: 700;
-    background-color: #f2f2f2;
-  }
-  
-  .score-table tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-  
-  .score-table tbody tr:hover {
-    background-color: #e5e5e5;
-  }
-  
-  .score-table td:first-child {
-    text-align: left;
-  }
-  
-  .score-table td:last-child {
-    font-weight: 700;
-  }
-  
-  .score-table .team-badge {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    margin-right: 5px;
-  }
-  
-  .score-table .team-name {
-    display: inline-block;
-    vertical-align: middle;
-    font-weight: 700;
-  }
+  width: 80%;
+  border-collapse: collapse;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 15px;
+  box-shadow: 10px 5px 5px grey;
+}
 
-  .footer-bg {
-    background-color: #5653538c;
-  }
+.score-table th,
+.score-table td {
+  padding: 10px;
+  text-align: center;
+  vertical-align: middle;
+  border: 1px;
+}
 
-  .img {
-    border-radius: 15px;
-    box-shadow: 10px 5px 5px grey;
-  }
+.score-table th {
+  font-weight: 700;
+  background-color: #f2f2f2;
+}
 
-  /* The Modal (background) */
+.score-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.score-table tbody tr:hover {
+  background-color: #e5e5e5;
+}
+
+.score-table td:first-child {
+  text-align: left;
+}
+
+.score-table td:last-child {
+  font-weight: 700;
+}
+
+.score-table .team-badge {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-right: 5px;
+}
+
+.score-table .team-name {
+  display: inline-block;
+  vertical-align: middle;
+  font-weight: 700;
+}
+
+.footer-bg {
+  background-color: #5653538c;
+}
+
+.img {
+  border-radius: 15px;
+  box-shadow: 10px 5px 5px grey;
+}
+
+/* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
@@ -71,7 +71,7 @@
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
 /* Modal Content/Box */
@@ -82,7 +82,6 @@
   border: 1px solid #888;
   width: 50%; /* Could be more or less, depending on screen size */
 }
-
 
 /* Modal Elements */
 #deletePlayerBtn {
@@ -112,60 +111,65 @@
 }
 
 * {
-	margin: 0px; 
-	padding: 0px; 
-	box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
 }
 
-body, html {
-	height: 100%;
-	font-family: Poppins-Regular, sans-serif;
+body,
+html {
+  height: 100%;
+  font-family: Poppins-Regular, sans-serif;
 }
 
 /*---------------------------------------------*/
 a {
-	font-size: 14px;
-	line-height: auto;
-	color: #666666;
-	margin: 0px;
-	transition: all 0.4s;
-	-webkit-transition: all 0.4s;
+  font-size: 14px;
+  line-height: auto;
+  color: #666666;
+  margin: 0px;
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
   -o-transition: all 0.4s;
   -moz-transition: all 0.4s;
 }
 
 a:focus {
-	outline: none !important;
+  outline: none !important;
 }
 
 a:hover {
-	text-decoration: none;
+  text-decoration: none;
   color: #6862d5;
 }
 
 /*---------------------------------------------*/
-h1,h2,h3,h4,h5,h6 {
-	margin: 0px;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0px;
 }
 
 p {
-
-	font-size: 14px;
-	line-height: 1.7;
-	color: #666666;
-	margin: 0px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #666666;
+  margin: 0px;
 }
 
-ul, li {
-	margin: 0px;
-	list-style-type: none;
+ul,
+li {
+  margin: 0px;
+  list-style-type: none;
 }
-
 
 /*---------------------------------------------*/
 input {
-	outline: none;
-	border: none;
+  outline: none;
+  border: none;
 }
 
 textarea {
@@ -173,24 +177,24 @@ textarea {
   border: none;
 }
 
-textarea:focus, input:focus {
+textarea:focus,
+input:focus {
   border-color: transparent !important;
 }
 
 button {
-	outline: none !important;
-	border: none;
-	background: transparent;
+  outline: none !important;
+  border: none;
+  background: transparent;
 }
 
 button:hover {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 iframe {
-	border: none !important;
+  border: none !important;
 }
-
 
 /*//////////////////////////////////////////////////////////////////
 [ Utility ]*/
@@ -208,7 +212,6 @@ iframe {
   color: #666666;
 }
 
-
 /*//////////////////////////////////////////////////////////////////
 [ login ]*/
 
@@ -216,8 +219,6 @@ iframe {
   width: 100%;
   margin: 0 auto;
 }
-
-
 
 /*----------------------------------------------------------------*/
 .login100-pic {
@@ -227,7 +228,6 @@ iframe {
 .login100-pic img {
   max-width: 100%;
 }
-
 
 /*----------------------------------------------------------------*/
 .login100-form {
@@ -244,7 +244,6 @@ iframe {
   display: block;
   padding-bottom: 54px;
 }
-
 
 /*---------------------------------------------*/
 .wrap-input100 {
@@ -271,9 +270,7 @@ iframe {
 /*------------------------------------------------------------------
 [ LOGIN Button ]*/
 
-
 .login100-form-btn {
-
   font-size: 15px;
   line-height: 1.5;
   color: #fff;
@@ -288,13 +285,9 @@ iframe {
 
 .login100-form-btn:hover {
   background: gray;
-
 }
 
-
 /* --------------------TABLE----------------------- */
-
-
 
 html,
 body {
@@ -318,7 +311,6 @@ table {
 
 .zebra {
   border: 1px solid #555;
-  
 }
 
 .zebra td {
@@ -353,7 +345,8 @@ table {
   color: #fff;
 }
 
-.delBtn, .addBtn{
+.delBtn,
+.addBtn {
   margin: 10px;
   background-color: black;
   border: none;
@@ -369,11 +362,9 @@ table {
 /* -----------------Teams cards ------------- */
 
 .teamCard {
-
-  box-shadow: 0 5px 20px 0 rgba(0,0,0,.9);
+  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.9);
   margin-right: 20px;
   margin-left: 20px;
   margin-top: 20px;
   margin-bottom: 40px;
-
 }

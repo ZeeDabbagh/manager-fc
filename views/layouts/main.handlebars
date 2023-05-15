@@ -45,7 +45,10 @@
               {{/if}}
             </li>
             <li>
-              <button class= "btn btn-secondary" id="langSwitch">{{language.button}}</button>
+              <button
+                class="btn btn-secondary"
+                id="langSwitch"
+              >{{language.button}}</button>
             </li>
           </ul>
         </div>
@@ -58,10 +61,10 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="/js/deletePlayer.js"></script>
-    <script src="/js/addPlayer.js"></script>
-    <script src="/js/logout.js"></script>
-      <script src="/js/languageSwitcher.js"></script>
+    {{#if loggedIn}}
+      <script src="/js/logout.js"></script>
+    {{/if}}
+    <script src="/js/languageSwitcher.js"></script>
   </body>
 
 </html>

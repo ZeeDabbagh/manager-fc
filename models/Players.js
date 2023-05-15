@@ -66,6 +66,4 @@ Player.init(
   }
 );
 
-//Player.belongsTo(Team, { foreignKey: "teamId" });
-
 module.exports = Player;

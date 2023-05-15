@@ -38,6 +38,4 @@ Team.init(
   }
 );
 
-//Team.belongsTo(User, { as: "coach", foreignKey: "coachId" });
-
 module.exports = Team;

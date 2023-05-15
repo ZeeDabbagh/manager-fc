@@ -3,14 +3,12 @@ const router = express.Router();
 const { Player, Team } = require("../../models");
 const withAuth = require("../../utils/auth");
 
-
 // Create a new player
 router.post("/", withAuth, async (req, res) => {
   try {
     const { name, position, jerseyNumber, weakFoot, strongFoot, teamName } =
       req.body;
 
-    // query team table
     const team = await Team.findOne({
       where: { name: teamName },
     });
@@ -32,10 +30,9 @@ router.post("/", withAuth, async (req, res) => {
   }
 });
 
-// Get the form to edit a player
+// Get the form to edit a player - This route works but the functionality has not been added to the site yet. For future development.
 
 router.get("/:id/edit", withAuth, async (req, res) => {
-
   try {
     const player = await Player.findByPk(req.params.id);
     if (player) {
@@ -48,7 +45,7 @@ router.get("/:id/edit", withAuth, async (req, res) => {
   }
 });
 
-// Update a player
+// Update a player - This route works but the functionality has not been added to the site yet. For future development.
 router.put("/:id", withAuth, async (req, res) => {
   try {
     const player = await Player.findByPk(req.params.id);
